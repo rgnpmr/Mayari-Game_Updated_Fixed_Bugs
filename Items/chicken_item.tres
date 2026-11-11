@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://dj1tuwftyheor"]
+
+[ext_resource type="Script" uid="uid://hc7gwekekohq" path="res://Items/item_effects/item_effects.gd" id="1_jhjrc"]
+[ext_resource type="Script" uid="uid://b7m31l7q05e30" path="res://Items/scripts/item_data.gd" id="2_havb5"]
+[ext_resource type="Script" uid="uid://c8v3qyx2jynhh" path="res://animals/script/spawn_scene_effect.gd" id="2_vcfsr"]
+[ext_resource type="Texture2D" uid="uid://bqjltn3wt57im" path="res://animals/sprites/Rooster_animation_with_shadow.png" id="3_vcfsr"]
+
+[sub_resource type="Resource" id="Resource_havb5"]
+script = ExtResource("2_vcfsr")
+scene_path = "uid://0ep3cfefxj86"
+metadata/_custom_type_script = "uid://c8v3qyx2jynhh"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2gdx"]
+atlas = ExtResource("3_vcfsr")
+region = Rect2(2, 1, 28, 32)
+
+[resource]
+script = ExtResource("2_havb5")
+name = "manok"
+description = "manok"
+texture = SubResource("AtlasTexture_l2gdx")
+effects = Array[ExtResource("1_jhjrc")]([SubResource("Resource_havb5")])
+metadata/_custom_type_script = "uid://b7m31l7q05e30"

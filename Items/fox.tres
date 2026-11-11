@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://bam7lv1jqk18h"]
+
+[ext_resource type="Script" uid="uid://hc7gwekekohq" path="res://Items/item_effects/item_effects.gd" id="1_gijqv"]
+[ext_resource type="Script" uid="uid://c8v3qyx2jynhh" path="res://animals/script/spawn_scene_effect.gd" id="2_88sbo"]
+[ext_resource type="Script" uid="uid://b7m31l7q05e30" path="res://Items/scripts/item_data.gd" id="3_hlsp4"]
+[ext_resource type="Texture2D" uid="uid://hih6a2rdtlg4" path="res://animals/sprites/Fox_Idle_with_shadow.png" id="4_gijqv"]
+
+[sub_resource type="Resource" id="Resource_c4uaq"]
+script = ExtResource("2_88sbo")
+scene_path = "uid://dfr1vw4k5an1m"
+metadata/_custom_type_script = "uid://c8v3qyx2jynhh"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r37ju"]
+atlas = ExtResource("4_gijqv")
+region = Rect2(0, 0, 28, 34)
+
+[resource]
+script = ExtResource("3_hlsp4")
+name = "Bunny"
+texture = SubResource("AtlasTexture_r37ju")
+effects = Array[ExtResource("1_gijqv")]([SubResource("Resource_c4uaq")])
+metadata/_custom_type_script = "uid://b7m31l7q05e30"

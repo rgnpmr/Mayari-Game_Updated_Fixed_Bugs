@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi5cy5u1wvmca"]
+
+[ext_resource type="Script" uid="uid://bt6bnmeala4nk" path="res://Level/FloodEffect/flood_effect.gd" id="1_ktypi"]
+[ext_resource type="Shader" uid="uid://dlplsafeterm0" path="res://Level/Shaders/floodeffect.gdshader" id="2_avmm4"]
+[ext_resource type="AudioStream" uid="uid://3xl7j6n7l3po" path="res://Assets/sounds/game-over02.wav" id="3_tjb0o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tjb0o"]
+shader = ExtResource("2_avmm4")
+shader_parameter/water_level = 0.0
+shader_parameter/water_color = Color(0.1, 0.35, 0.55, 0.75)
+shader_parameter/foam_color = Color(0.8, 0.95, 1, 0.9)
+shader_parameter/wave_amp = 0.012
+shader_parameter/wave_freq = 18.0
+shader_parameter/wave_speed = 1.2
+shader_parameter/foam_thickness = 0.01
+
+[node name="FloodEffect" type="CanvasLayer"]
+process_mode = 3
+layer = 5
+script = ExtResource("1_ktypi")
+
+[node name="WaterOverlay" type="ColorRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_tjb0o")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tjb0o")

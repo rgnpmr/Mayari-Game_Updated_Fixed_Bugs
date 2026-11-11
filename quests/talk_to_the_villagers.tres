@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://csq7307sy4txk"]
+
+[ext_resource type="Script" uid="uid://deq0wu2uunon1" path="res://quests/scripts/quest_reward_item.gd" id="1_se7bn"]
+[ext_resource type="Resource" uid="uid://b2n62wm51udb7" path="res://Items/red_gem.tres" id="2_aiux5"]
+[ext_resource type="Script" uid="uid://dsh4ekdjmvfh" path="res://quests/scripts/quest_resource.gd" id="2_vj8u4"]
+
+[sub_resource type="Resource" id="Resource_6yyy8"]
+script = ExtResource("1_se7bn")
+item = ExtResource("2_aiux5")
+metadata/_custom_type_script = "uid://deq0wu2uunon1"
+
+[resource]
+script = ExtResource("2_vj8u4")
+title = "Kaulay"
+description = "Tulungan lumikas ang mga tao."
+reward_items = Array[ExtResource("1_se7bn")]([SubResource("Resource_6yyy8")])
+target_amount = 3
+metadata/_custom_type_script = "uid://dsh4ekdjmvfh"

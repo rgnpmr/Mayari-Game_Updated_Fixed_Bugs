@@ -1,0 +1,134 @@
+[gd_scene load_steps=17 format=3 uid="uid://c7mvbpu83om7m"]
+
+[ext_resource type="Script" uid="uid://coknwql7dwu1w" path="res://animals/script/dog.gd" id="1_w55to"]
+[ext_resource type="Texture2D" uid="uid://dxdnahwx07gmb" path="res://animals/sprites/SleepDog.png" id="2_w55to"]
+[ext_resource type="Script" uid="uid://i7v7wcvfkfi6" path="res://Enemies/Scripts/enemy_state_machine.gd" id="3_vju6i"]
+[ext_resource type="Script" uid="uid://b0v7yjgj5wi11" path="res://Enemies/Scripts/states/enemy_state_idle.gd" id="4_un15f"]
+[ext_resource type="Script" uid="uid://be3hyoive0q06" path="res://Enemies/Scripts/states/enemy_state_wander.gd" id="5_0l0iw"]
+[ext_resource type="Script" uid="uid://pvgyasuag66w" path="res://Enemies/Scripts/states/enemy_state_hurt.gd" id="6_qpi8f"]
+[ext_resource type="Script" uid="uid://b8mau746t4say" path="res://Enemies/Scripts/states/enemy_state_destroy.gd" id="7_5vprr"]
+[ext_resource type="Script" uid="uid://ctg3v7edaxrtw" path="res://Enemies/Scripts/drop_data.gd" id="8_smufj"]
+[ext_resource type="Resource" uid="uid://bsrqa76n6ix5u" path="res://Items/green_ gem.tres" id="9_cyoum"]
+[ext_resource type="Resource" uid="uid://cv20xh1kh7hhe" path="res://Items/apple.tres" id="10_dqadv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w55to"]
+size = Vector2(45, 13)
+
+[sub_resource type="Animation" id="Animation_psd7k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5d1rl"]
+resource_name = "sleep"
+length = 0.6
+loop_mode = 2
+step = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5d1rl"]
+_data = {
+&"RESET": SubResource("Animation_psd7k"),
+&"sleep": SubResource("Animation_5d1rl")
+}
+
+[sub_resource type="Resource" id="Resource_72ucv"]
+script = ExtResource("8_smufj")
+item = ExtResource("9_cyoum")
+max_amount = 4
+metadata/_custom_type_script = "uid://ctg3v7edaxrtw"
+
+[sub_resource type="Resource" id="Resource_c5cbs"]
+script = ExtResource("8_smufj")
+item = ExtResource("10_dqadv")
+probability = 33.0
+metadata/_custom_type_script = "uid://ctg3v7edaxrtw"
+
+[node name="dog" type="CharacterBody2D"]
+collision_layer = 256
+collision_mask = 16
+script = ExtResource("1_w55to")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_w55to")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 25)
+shape = SubResource("RectangleShape2D_w55to")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5d1rl")
+}
+autoplay = "sleep"
+
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("3_vju6i")
+
+[node name="Idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("after_idle_state")]
+script = ExtResource("4_un15f")
+after_idle_state = NodePath("../Wander")
+
+[node name="Wander" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("5_0l0iw")
+walk_speed = 40.0
+next_state = NodePath("../Idle")
+
+[node name="Hurt" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("6_qpi8f")
+next_state = NodePath("../Wander")
+
+[node name="Death" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("7_5vprr")
+drops = Array[ExtResource("8_smufj")]([SubResource("Resource_72ucv"), SubResource("Resource_c5cbs")])
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -10)
+max_polyphony = 4

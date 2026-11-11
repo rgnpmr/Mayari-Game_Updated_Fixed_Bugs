@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://bylmkaqdsinpp"]
+
+[ext_resource type="Script" uid="uid://deq0wu2uunon1" path="res://quests/scripts/quest_reward_item.gd" id="1_ea68t"]
+[ext_resource type="Script" uid="uid://dsh4ekdjmvfh" path="res://quests/scripts/quest_resource.gd" id="2_u8bgj"]
+
+[resource]
+script = ExtResource("2_u8bgj")
+title = "Likas Hayop"
+description = "Hanapin ang mga hayop."
+steps = Array[String](["manok", "tupa", "baka"])
+step_targets = Array[int]([2, 2, 2])
+metadata/_custom_type_script = "uid://dsh4ekdjmvfh"

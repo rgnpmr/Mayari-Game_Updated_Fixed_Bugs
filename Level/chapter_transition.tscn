@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://s0nils4fog6j"]
+
+[ext_resource type="Script" uid="uid://yu6m5et5fqu2" path="res://Level/scripts/chapter_transition.gd" id="1_ukkl8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j277o"]
+resource_local_to_scene = true
+size = Vector2(32, 64)
+
+[node name="ChapterTransition" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_ukkl8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_j277o")
+debug_color = Color(0.627451, 0.43137255, 1, 0)

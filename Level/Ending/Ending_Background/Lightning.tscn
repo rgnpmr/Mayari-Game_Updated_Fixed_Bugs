@@ -1,0 +1,145 @@
+[gd_scene load_steps=13 format=3 uid="uid://dku15cogif63d"]
+
+[ext_resource type="Script" uid="uid://dlruynves03dc" path="res://Level/Ending/Ending_Background/lightning.gd" id="1_ro7xr"]
+[ext_resource type="Texture2D" uid="uid://c5gnlfutviyna" path="res://Assets/clouds/Lightning/lightning1.png" id="1_t8wy7"]
+[ext_resource type="Texture2D" uid="uid://dc1ejfrgwmxm0" path="res://Assets/clouds/Lightning/lightning2.png" id="2_ro7xr"]
+[ext_resource type="Texture2D" uid="uid://cmrpaks3hd0j7" path="res://Assets/clouds/Lightning/lightning3.png" id="3_8g3cw"]
+[ext_resource type="Texture2D" uid="uid://ck5jsopltkcn2" path="res://Assets/clouds/Lightning/lightning4.png" id="4_2lktu"]
+[ext_resource type="Texture2D" uid="uid://cgdow1j7kn3kb" path="res://Assets/clouds/Lightning/lightning5.png" id="5_r3v1c"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_swqf7"]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8hwof"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t8wy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ro7xr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8g3cw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2lktu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3v1c")
+}],
+"loop": false,
+"name": &"strike",
+"speed": 10.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wsgo8"]
+blend_mode = 1
+
+[sub_resource type="Animation" id="Animation_8g3cw"]
+resource_name = "strike"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bolt:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.1, 0.26666668, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bolt:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.23333333, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flash:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.23333333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.54901963), Color(1, 1, 1, 0), Color(1, 1, 1, 0.34901962), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2lktu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bolt:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bolt:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flash:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r3v1c"]
+_data = {
+&"RESET": SubResource("Animation_2lktu"),
+&"strike": SubResource("Animation_8g3cw")
+}
+
+[node name="Lightning" type="Node2D"]
+script = ExtResource("1_ro7xr")
+
+[node name="Bolt" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_swqf7")
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_8hwof")
+animation = &"strike"
+centered = false
+
+[node name="Flash" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("CanvasItemMaterial_wsgo8")
+mouse_filter = 2
+color = Color(0.8617083, 0.90596163, 1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_r3v1c")
+}

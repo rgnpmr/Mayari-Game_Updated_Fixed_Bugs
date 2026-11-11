@@ -1,0 +1,182 @@
+[gd_scene load_steps=22 format=3 uid="uid://bwb7fd0gxbwas"]
+
+[ext_resource type="Script" uid="uid://lkj3y6o2os6m" path="res://Level/Story/intro_storytelling.gd" id="1_mxwb3"]
+[ext_resource type="Texture2D" uid="uid://ccotcjc2caxv2" path="res://Images/isarog.png" id="2_1ryaq"]
+[ext_resource type="Texture2D" uid="uid://dexkj2s5dhspw" path="res://Images/womanfarmer.png" id="2_dahbp"]
+[ext_resource type="Texture2D" uid="uid://cq71d60jpe71d" path="res://Items/sprites/dialogue_bg.png" id="4_1ryaq"]
+[ext_resource type="FontFile" uid="uid://bqikap07b3uhj" path="res://GUI/fonts/m5x7.ttf" id="4_5boob"]
+[ext_resource type="FontFile" uid="uid://2bs28v2ieaak" path="res://GUI/fonts/Abaddon Bold.ttf" id="5_6f2ru"]
+[ext_resource type="Script" uid="uid://ueesf2ffbpr8" path="res://Interactables/dialogue/scripts/dialogue_text.gd" id="6_6f2ru"]
+[ext_resource type="AudioStream" uid="uid://8hrh73rc22al" path="res://Voices/Narrator/Intro_Story/1.ogg" id="8_sd4jn"]
+[ext_resource type="AudioStream" uid="uid://dj556hsj0mcu7" path="res://Voices/Narrator/Intro_Story/2.ogg" id="9_n440o"]
+[ext_resource type="AudioStream" uid="uid://dpcwm6cimibcs" path="res://Voices/Narrator/Intro_Story/3.ogg" id="10_1ryaq"]
+[ext_resource type="AudioStream" uid="uid://0bcr7ew3kjqj" path="res://Voices/Narrator/Intro_Story/4.ogg" id="11_73fs1"]
+[ext_resource type="AudioStream" uid="uid://wwyk1x6ey11l" path="res://Voices/Narrator/Intro_Story/5.ogg" id="12_pp5hl"]
+[ext_resource type="AudioStream" uid="uid://1d3jb6h1pvqk" path="res://Voices/Narrator/Intro_Story/6.ogg" id="13_1ryaq"]
+[ext_resource type="AudioStream" uid="uid://ddjb1es4g2420" path="res://Voices/Narrator/Intro_Story/7.ogg" id="13_vnx81"]
+[ext_resource type="AudioStream" uid="uid://bjsl6spbufaf7" path="res://Voices/Narrator/Intro_Story/8.ogg" id="14_1sj2o"]
+[ext_resource type="AudioStream" uid="uid://da6e7peu6qlgx" path="res://Voices/Narrator/Intro_Story/9.ogg" id="15_h7ltm"]
+[ext_resource type="Script" uid="uid://bdjtws72a5xmt" path="res://Level/Ending/styled_button.gd" id="17_73fs1"]
+
+[sub_resource type="Gradient" id="Gradient_mxwb3"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mxwb3"]
+gradient = SubResource("Gradient_mxwb3")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5aig"]
+atlas = ExtResource("4_1ryaq")
+region = Rect2(42, 8, 1204, 190)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rth8k"]
+content_margin_left = 14.0
+content_margin_top = 26.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_p5aig")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="Intro Storytelling" type="CanvasLayer"]
+script = ExtResource("1_mxwb3")
+music_duck_db = -18.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1ryaq")
+expand_mode = 2
+
+[node name="Womanfarmer" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(78, 226)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_dahbp")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.4627451)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -301.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_mxwb3")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+texture_filter = 1
+offset_left = 137.0
+offset_top = 186.0
+offset_right = 476.0
+offset_bottom = 259.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rth8k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("4_5boob")
+theme_override_fonts/bold_font = ExtResource("5_6f2ru")
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StoryLines" type="Node" parent="."]
+
+[node name="DialogueText" type="Node" parent="StoryLines"]
+script = ExtResource("6_6f2ru")
+text = "Long ago, near the foot of Mount Isarog, there lived a giant Agama. "
+voice = ExtResource("8_sd4jn")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText2" type="Node" parent="StoryLines"]
+script = ExtResource("6_6f2ru")
+text = "The people in the village believed that this Agama was not an ordinary creature.  "
+voice = ExtResource("9_n440o")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText3" type="Node" parent="StoryLines"]
+script = ExtResource("6_6f2ru")
+text = "It was known as the guardian of the mountain. "
+voice = ExtResource("10_1ryaq")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText4" type="Node" parent="StoryLines"]
+script = ExtResource("6_6f2ru")
+text = "Mount Isarog stood, tall and powerful..."
+voice = ExtResource("11_73fs1")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText5" type="Node" parent="StoryLines"]
+script = ExtResource("6_6f2ru")
+text = "The villager felt its strength because they believed that when the mountain became angry."
+voice = ExtResource("12_pp5hl")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText6" type="Node" parent="StoryLines"]
+script = ExtResource("6_6f2ru")
+text = "It could shake the ground and release water, completely flooding the sorrounding environment. "
+voice = ExtResource("13_1ryaq")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText7" type="Node" parent="StoryLines"]
+script = ExtResource("6_6f2ru")
+text = "But they also believed that as long as the Agama stayed strong and watchful..."
+voice = ExtResource("13_vnx81")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText8" type="Node" parent="StoryLines"]
+script = ExtResource("6_6f2ru")
+text = "The mountain would remain calm and peaceful."
+voice = ExtResource("14_1sj2o")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText9" type="Node" parent="StoryLines"]
+script = ExtResource("6_6f2ru")
+text = "But peace does not last forever."
+voice = ExtResource("15_h7ltm")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="NextButton" type="Label" parent="."]
+texture_filter = 1
+offset_left = 196.0
+offset_top = 260.0
+offset_right = 441.0
+offset_bottom = 283.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_5boob")
+theme_override_font_sizes/font_size = 13
+text = "Pindutin ang \"space\" o i-tap ang screen para magpatuloy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 6
+bus = &"SPX"
+
+[node name="SkipButton" type="Button" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 20)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_top = 6.0
+offset_right = -5.0
+offset_bottom = 28.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("4_5boob")
+theme_override_font_sizes/font_size = 13
+text = "Laktawan"
+script = ExtResource("17_73fs1")

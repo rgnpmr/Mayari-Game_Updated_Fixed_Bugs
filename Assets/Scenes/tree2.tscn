@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxv4n2kav2t3u"]
+
+[ext_resource type="Script" uid="uid://3iu5rqwusogv" path="res://Props/Plants/plant.gd" id="1_iircb"]
+[ext_resource type="Shader" uid="uid://dmm2e7etyft8m" path="res://Level/Shaders/tree_sway.gdshader" id="2_b3p31"]
+[ext_resource type="Texture2D" uid="uid://3d0swtdjahxg" path="res://Assets/Trees/middle_lane_tree2.png" id="2_iircb"]
+[ext_resource type="PackedScene" uid="uid://b1odd86vtn1lh" path="res://GeneralNodes/HitBox/hit_box.tscn" id="3_6u32y"]
+[ext_resource type="Texture2D" uid="uid://c8kofu2elswbo" path="res://player/Sprites/Shadow.png" id="4_5igne"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5igne"]
+shader = ExtResource("2_b3p31")
+shader_parameter/sway_speed = 1.5
+shader_parameter/sway_strength = 2.0
+shader_parameter/sway_offset = 0.0
+shader_parameter/sway_start = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3oha"]
+size = Vector2(31, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7sa7"]
+size = Vector2(32, 64)
+
+[node name="tree" type="Node2D"]
+script = ExtResource("1_iircb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5igne")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_iircb")
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.49019608)
+show_behind_parent = true
+position = Vector2(-7.5156217, 62.5)
+scale = Vector2(3.0322266, 1.9062501)
+texture = ExtResource("4_5igne")
+
+[node name="ShadowSprite2" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.49019608)
+show_behind_parent = true
+position = Vector2(-11.999999, 66.1875)
+scale = Vector2(1.3125, 0.6132813)
+texture = ExtResource("4_5igne")
+
+[node name="HitBox" parent="." instance=ExtResource("3_6u32y")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+visible = false
+position = Vector2(-9.5, 10)
+shape = SubResource("RectangleShape2D_l3oha")
+debug_color = Color(0.7019608, 0.29803923, 0, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(-10, 35)
+shape = SubResource("RectangleShape2D_l7sa7")
+debug_color = Color(0, 0.6, 0.69803923, 0)

@@ -1,0 +1,141 @@
+[gd_scene load_steps=14 format=3 uid="uid://dcps47j1p46h4"]
+
+[ext_resource type="Script" uid="uid://xn5hkgctoxjn" path="res://Level/Story/story_scene.gd" id="1_eb7ke"]
+[ext_resource type="Script" uid="uid://ueesf2ffbpr8" path="res://Interactables/dialogue/scripts/dialogue_text.gd" id="1_ib8mf"]
+[ext_resource type="FontFile" uid="uid://bqikap07b3uhj" path="res://GUI/fonts/m5x7.ttf" id="3_015kh"]
+[ext_resource type="AudioStream" uid="uid://d0705kw8qgjhu" path="res://Voices/Narrator/Chapter2_Rest/1.ogg" id="3_njm0e"]
+[ext_resource type="AudioStream" uid="uid://71agak5v1jn8" path="res://Voices/Narrator/Chapter2_Rest/2.ogg" id="4_ju6ex"]
+[ext_resource type="AudioStream" uid="uid://bndsqasch3ugb" path="res://Voices/Narrator/Chapter2_Rest/3.ogg" id="5_p4f2d"]
+[ext_resource type="AudioStream" uid="uid://m0hkrjxnqcrr" path="res://Voices/Narrator/Chapter2_Rest/4.ogg" id="6_n3ad0"]
+[ext_resource type="AudioStream" uid="uid://buks73tgkf007" path="res://Voices/Narrator/Chapter2_Rest/5.ogg" id="7_6q55h"]
+[ext_resource type="AudioStream" uid="uid://cbufiwr7vcpn7" path="res://Voices/Narrator/Chapter2_Rest/6.ogg" id="8_gijeu"]
+[ext_resource type="AudioStream" uid="uid://bw1epqxq10ai4" path="res://Voices/Narrator/Chapter2_Rest/7.ogg" id="9_1lyfu"]
+[ext_resource type="AudioStream" uid="uid://bntql3kmfvwp4" path="res://Voices/Narrator/Chapter2_Rest/8.ogg" id="10_vkj3d"]
+[ext_resource type="AudioStream" uid="uid://1o0p82h1ph3b" path="res://Voices/Narrator/Chapter2_Rest/9.ogg" id="11_hby60"]
+[ext_resource type="Script" uid="uid://bdjtws72a5xmt" path="res://Level/Ending/styled_button.gd" id="14_p4f2d"]
+
+[node name="StorySceneChapter2" type="Node2D"]
+script = ExtResource("1_eb7ke")
+music_duck_db = -18.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 55
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14117648, 0.14117648, 0.14117648, 0.78039217)
+metadata/_edit_use_anchors_ = true
+
+[node name="Content" type="RichTextLabel" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.168
+anchor_top = 0.43666667
+anchor_right = 0.826
+anchor_bottom = 0.43666667
+offset_left = 20.0
+offset_top = -51.0
+offset_right = -20.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StoryLines" type="Node" parent="CanvasLayer"]
+
+[node name="DialogueText" type="Node" parent="CanvasLayer/StoryLines"]
+script = ExtResource("1_ib8mf")
+text = "Every day and every night, Agama guarded the mountain watching, waiting, never resting."
+voice = ExtResource("3_njm0e")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText2" type="Node" parent="CanvasLayer/StoryLines"]
+script = ExtResource("1_ib8mf")
+text = "Not far from the mountain lived Kasili, a long and slippery eel who lived in the river winding through the forest."
+voice = ExtResource("4_ju6ex")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText3" type="Node" parent="CanvasLayer/StoryLines"]
+script = ExtResource("1_ib8mf")
+text = "Unlike Agama, Kasili was playful and reckless, always moving, always disturbing the world around it."
+voice = ExtResource("5_p4f2d")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText4" type="Node" parent="CanvasLayer/StoryLines"]
+script = ExtResource("1_ib8mf")
+text = "For many days, Agama stood watch without rest, until at last, the weight of it all became too much."
+voice = ExtResource("6_n3ad0")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText5" type="Node" parent="CanvasLayer/StoryLines"]
+script = ExtResource("1_ib8mf")
+text = "The sun was hot. The wind was calm. Slowly, Agama's eyes grew heavy... and closed."
+voice = ExtResource("7_6q55h")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText6" type="Node" parent="CanvasLayer/StoryLines"]
+script = ExtResource("1_ib8mf")
+text = "While Agama slept, Kasili slipped through the waters near the mountain, twisting and playing, never realizing the danger in its games."
+voice = ExtResource("8_gijeu")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText7" type="Node" parent="CanvasLayer/StoryLines"]
+script = ExtResource("1_ib8mf")
+text = "The ground began to tremble. The river swelled. Something deep within the mountain stirred."
+voice = ExtResource("9_1lyfu")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText8" type="Node" parent="CanvasLayer/StoryLines"]
+script = ExtResource("1_ib8mf")
+text = "\"Agama! Wake up! Kasili is disturbing the mountain please, you have to stop it!\" A voice of Engkanto"
+voice = ExtResource("10_vkj3d")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText9" type="Node" parent="CanvasLayer/StoryLines"]
+script = ExtResource("1_ib8mf")
+text = "Agama's eyes snap open. The ground is already shaking beneath its feet. There is no more time to rest. It's time to climb the mountain, find Kasili, and set things right before it's too late."
+voice = ExtResource("11_hby60")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = 78.0
+offset_right = 33.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_015kh")
+theme_override_font_sizes/font_size = 13
+text = "Pindutin ang \"space\" o i-tap ang screen para magpatuloy"
+
+[node name="SkipButton" type="Button" parent="CanvasLayer"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 22)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_top = 6.0
+offset_right = -5.0
+offset_bottom = 28.0
+grow_horizontal = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_015kh")
+text = "Laktawan"
+script = ExtResource("14_p4f2d")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

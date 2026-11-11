@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxroxq0yrr44o"]
+
+[ext_resource type="Texture2D" uid="uid://ckyrd6gp4lfb8" path="res://Assets/stones/Rock4_1.png" id="2_5mkji"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vd8au"]
+radius = 21.023796
+
+[node name="rock" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -3)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_5mkji")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3, -3)
+shape = SubResource("CircleShape2D_vd8au")
+debug_color = Color(0, 0.6, 0.69803923, 0)

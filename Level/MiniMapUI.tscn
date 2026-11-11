@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://jrxeimv4n37h"]
+
+[ext_resource type="Script" uid="uid://degqaockhj67q" path="res://Level/mini_map_ui.gd" id="1_ybraf"]
+[ext_resource type="Shader" uid="uid://ccpnlc3yx0fv8" path="res://Level/Shaders/circle_mask.gdshader" id="2_shdlp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybraf"]
+bg_color = Color(0.078431375, 0.101960786, 0.078431375, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.38431373, 0.24313726, 0.019607844, 1)
+corner_radius_top_left = 66
+corner_radius_top_right = 66
+corner_radius_bottom_right = 66
+corner_radius_bottom_left = 66
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_shdlp"]
+shader = ExtResource("2_shdlp")
+
+[node name="MiniMapUi" type="CanvasLayer"]
+script = ExtResource("1_ybraf")
+zoom_amount = Vector2(0.25, 0.25)
+
+[node name="MiniMapFrame" type="PanelContainer" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(60, 60)
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 122.0
+offset_bottom = 122.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ybraf")
+
+[node name="MiniMapContent" type="Control" parent="MiniMapFrame"]
+texture_filter = 1
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MiniMapFrame/MiniMapContent"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MiniMapContainer" type="SubViewportContainer" parent="MiniMapFrame/MiniMapContent/MarginContainer"]
+material = SubResource("ShaderMaterial_shdlp")
+layout_mode = 2
+stretch = true
+
+[node name="MiniMapViewport" type="SubViewport" parent="MiniMapFrame/MiniMapContent/MarginContainer/MiniMapContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(117, 117)
+render_target_update_mode = 4
+
+[node name="MiniMapCamera" type="Camera2D" parent="MiniMapFrame/MiniMapContent/MarginContainer/MiniMapContainer/MiniMapViewport"]
+
+[node name="MarkersLayer" type="Control" parent="MiniMapFrame/MiniMapContent"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

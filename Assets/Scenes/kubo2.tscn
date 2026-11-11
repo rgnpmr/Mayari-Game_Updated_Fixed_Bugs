@@ -1,0 +1,182 @@
+[gd_scene load_steps=14 format=3 uid="uid://d0bpoyxn6ka8p"]
+
+[ext_resource type="Texture2D" uid="uid://yhf6xbbl3odb" path="res://Assets/kubo/building_1 (15).png" id="1_yhrvc"]
+[ext_resource type="Script" uid="uid://d1yb5is2qqw0e" path="res://GUI/Rest/rest_area.gd" id="2_2heg8"]
+[ext_resource type="PackedScene" uid="uid://dcps47j1p46h4" path="res://Level/Story/story_scene_chapter_2.tscn" id="3_hy0ar"]
+[ext_resource type="PackedScene" uid="uid://co1v6r042bdi1" path="res://GUI/Rest/rest_ui.tscn" id="3_tmouv"]
+[ext_resource type="Script" uid="uid://ueesf2ffbpr8" path="res://Interactables/dialogue/scripts/dialogue_text.gd" id="4_7sw22"]
+[ext_resource type="Texture2D" uid="uid://dl7qv1h8m7pxo" path="res://Interactables/dialogue/sprites/dialog_interactable.png" id="5_miqrd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v07fr"]
+size = Vector2(89, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhrvc"]
+size = Vector2(119, 78)
+
+[sub_resource type="Animation" id="Animation_e0mvr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mdqmn"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -52)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b4cj5"]
+resource_name = "hide"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-15, 15), Vector2(-15, 15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_opq74"]
+resource_name = "show"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-15, 15), Vector2(-15, 15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fpsh"]
+_data = {
+&"RESET": SubResource("Animation_e0mvr"),
+&"default": SubResource("Animation_mdqmn"),
+&"hide": SubResource("Animation_b4cj5"),
+&"show": SubResource("Animation_opq74")
+}
+
+[node name="kubo" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_yhrvc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-1, 8)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1.5, 29.5)
+shape = SubResource("RectangleShape2D_v07fr")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("2_2heg8")
+auto_start_quests = Array[String](["Rescue Displaced Animals"])
+completes_quest = "Pahingalo"
+end_of_chapter_story = ExtResource("3_hy0ar")
+next_chapter_scene = "res://Level/Chapters/05.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.5, 56)
+shape = SubResource("RectangleShape2D_yhrvc")
+debug_color = Color(0.7019608, 0.62352943, 0, 0)
+
+[node name="RestPromptUI" parent="Area2D" instance=ExtResource("3_tmouv")]
+
+[node name="SleepStory" type="Node" parent="Area2D"]
+
+[node name="DialogueText" type="Node" parent="Area2D/SleepStory"]
+script = ExtResource("4_7sw22")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(2, 20)
+texture = ExtResource("5_miqrd")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_2fpsh")
+}

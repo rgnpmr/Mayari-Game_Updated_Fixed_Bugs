@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://b2n62wm51udb7"]
+
+[ext_resource type="Script" uid="uid://hc7gwekekohq" path="res://Items/item_effects/item_effects.gd" id="1_x8ji1"]
+[ext_resource type="Script" uid="uid://b7m31l7q05e30" path="res://Items/scripts/item_data.gd" id="2_gj1au"]
+[ext_resource type="Texture2D" uid="uid://cj38g1evsp0uk" path="res://Items/sprites/gems.png" id="3_gj1au"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbygg"]
+atlas = ExtResource("3_gj1au")
+region = Rect2(24, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_gj1au")
+name = "Pula"
+description = "Pulang Perlas"
+texture = SubResource("AtlasTexture_fbygg")
+quest_title = "Hanap Perlas"
+quest_step_id = "Pula"
+metadata/_custom_type_script = "uid://b7m31l7q05e30"

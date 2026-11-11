@@ -1,0 +1,193 @@
+[gd_scene load_steps=14 format=3 uid="uid://ddvshmco0jqu2"]
+
+[ext_resource type="Script" uid="uid://o0pvga7pnk1x" path="res://animals/script/chicken.gd" id="1_0addl"]
+[ext_resource type="Texture2D" uid="uid://bqjltn3wt57im" path="res://animals/sprites/Rooster_animation_with_shadow.png" id="2_djm5r"]
+[ext_resource type="AudioStream" uid="uid://beeno58x5fd6q" path="res://animals/sounds/chicken.wav" id="11_ly7m1"]
+[ext_resource type="Script" uid="uid://d1v33v28cvxfb" path="res://animals/chicken_locate_sound.gd" id="12_q12t8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_psd7k"]
+radius = 7.0
+height = 14.0
+
+[sub_resource type="Animation" id="Animation_psd7k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nmwrj"]
+resource_name = "idle_down"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [24, 29]
+}
+
+[sub_resource type="Animation" id="Animation_jfe4y"]
+resource_name = "idle_side"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [30, 35]
+}
+
+[sub_resource type="Animation" id="Animation_21ej4"]
+resource_name = "idle_up"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6, 11]
+}
+
+[sub_resource type="Animation" id="Animation_5d1rl"]
+resource_name = "walk_down"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 5]
+}
+
+[sub_resource type="Animation" id="Animation_oc7hw"]
+resource_name = "walk_side"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [18, 23]
+}
+
+[sub_resource type="Animation" id="Animation_o1k6x"]
+resource_name = "walk_up"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5d1rl"]
+_data = {
+&"RESET": SubResource("Animation_psd7k"),
+&"idle_down": SubResource("Animation_nmwrj"),
+&"idle_side": SubResource("Animation_jfe4y"),
+&"idle_up": SubResource("Animation_21ej4"),
+&"walk_down": SubResource("Animation_5d1rl"),
+&"walk_side": SubResource("Animation_oc7hw"),
+&"walk_up": SubResource("Animation_o1k6x")
+}
+
+[node name="chicken2" type="CharacterBody2D"]
+collision_layer = 256
+collision_mask = 16
+script = ExtResource("1_0addl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_djm5r")
+hframes = 6
+vframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 6)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_psd7k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5d1rl")
+}
+autoplay = "idle_down"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -10)
+stream = ExtResource("11_ly7m1")
+max_distance = 250.0
+max_polyphony = 4
+bus = &"Ambience"
+script = ExtResource("12_q12t8")

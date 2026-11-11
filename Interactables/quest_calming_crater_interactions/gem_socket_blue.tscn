@@ -1,0 +1,257 @@
+[gd_scene load_steps=21 format=4 uid="uid://cxo11t7wg8db0"]
+
+[ext_resource type="Script" uid="uid://bqew5llkek2if" path="res://Interactables/quest_calming_crater_interactions/gem_socket.gd" id="1_g8anw"]
+[ext_resource type="Resource" uid="uid://ci1x5bllp60jg" path="res://Items/blue_gem.tres" id="2_idu7v"]
+[ext_resource type="Script" uid="uid://cyhnpvoavbbwt" path="res://npc/scripts/npc_resource.gd" id="3_5oig2"]
+[ext_resource type="Script" uid="uid://qiyturhy3wl8" path="res://Assets/scripts/key_prompt_area.gd" id="3_idu7v"]
+[ext_resource type="Texture2D" uid="uid://p3vkovt1l7qr" path="res://Assets/kb.png" id="3_r2xol"]
+[ext_resource type="PackedScene" uid="uid://dptxch1aoexjp" path="res://Assets/Scenes/grass.tscn" id="3_t5qmr"]
+[ext_resource type="Texture2D" uid="uid://cj38g1evsp0uk" path="res://Items/sprites/gems.png" id="4_uw1cu"]
+
+[sub_resource type="Resource" id="Resource_me56h"]
+script = ExtResource("3_5oig2")
+npc_name = "Enkanto"
+metadata/_custom_type_script = "uid://cyhnpvoavbbwt"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uw1cu"]
+radius = 58.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw1cu"]
+atlas = ExtResource("3_r2xol")
+region = Rect2(165, 21, 16, 19)
+
+[sub_resource type="Animation" id="Animation_t5qmr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractionGemConfirm/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InteractionGemConfirm/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_idu7v"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractionGemConfirm/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(40, -18), Vector2(40, -18)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InteractionGemConfirm/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uw1cu"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractionGemConfirm/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(40, -18), Vector2(40, -18)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InteractionGemConfirm/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tb7jd"]
+_data = {
+&"RESET": SubResource("Animation_t5qmr"),
+&"hide": SubResource("Animation_idu7v"),
+&"show": SubResource("Animation_uw1cu")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t5qmr"]
+radius = 56.88585
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb7jd"]
+atlas = ExtResource("4_uw1cu")
+region = Rect2(1, 0, 16, 16)
+
+[sub_resource type="Animation" id="Animation_7i72l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gem_Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(39, 24)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gem_Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tb7jd"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gem_Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(39, 24)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gem_Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3nsbh"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gem_Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(39, 24)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gem_Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ptlci"]
+_data = {
+&"RESET": SubResource("Animation_7i72l"),
+&"hide": SubResource("Animation_tb7jd"),
+&"show": SubResource("Animation_3nsbh")
+}
+
+[node name="GemSocketBlue" type="Node2D"]
+script = ExtResource("1_g8anw")
+required_gem = ExtResource("2_idu7v")
+quest_step_id = "Place Blue Gem"
+engkanto_info = SubResource("Resource_me56h")
+hint_text = "Place the blue gem here."
+
+[node name="Grass" parent="." instance=ExtResource("3_t5qmr")]
+tile_map_data = PackedByteArray("AAD/////AQABAAcAAAD//wAAAQABAAgAAAD//wIAAQABAAgAAAD//wMAAQABAAkAAAD//wEAAQABAAgAAAAAAP7/AQACAAYAAAAAAP//AQACAAcAAAABAP7/AQADAAYAAAAAAAMAAQACAAkAAAAAAAQAAQACAAoAAAABAAQAAQADAAoAAAAAAAEAAQAFAAgAAAAAAAAAAQAEAAkAAAABAAAAAQABAAcAAAACAP7/AQADAAYAAAADAP7/AQADAAYAAAAEAP7/AQAFAAcAAAAEAP//AQAFAAgAAAABAP//AQAEAAkAAAAAAAIAAQAEAAcAAAABAAIAAQACAAoAAAABAAMAAQAEAAcAAAACAAMAAQADAAYAAAADAAMAAQACAAcAAAACAP//AQADAAoAAAADAP//AQACAAkAAAADAAAAAQACAAcAAAAEAAAAAQAFAAkAAAACAAQAAQADAAoAAAADAAQAAQADAAoAAAAEAAMAAQAFAAgAAAAEAAQAAQAFAAkAAAADAAIAAQACAAkAAAAEAAIAAQAFAAcAAAACAAAAAQADAAYAAAACAAIAAQADAAoAAAABAAEAAQABAAgAAAA=")
+script = null
+
+[node name="Grass2" parent="." instance=ExtResource("3_t5qmr")]
+tile_map_data = PackedByteArray("AAABAAAAAQAFAAkAAAABAAIAAQAFAAcAAAADAAIAAQACAAYAAAADAAAAAQACAAoAAAA=")
+script = null
+
+[node name="InteractionGemConfirm" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_idu7v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionGemConfirm"]
+position = Vector2(39, 25)
+shape = SubResource("CircleShape2D_uw1cu")
+debug_color = Color(0.7019608, 0.41568628, 0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="InteractionGemConfirm"]
+position = Vector2(0, -40)
+scale = Vector2(0.7, 0.7)
+texture = SubResource("AtlasTexture_uw1cu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InteractionGemConfirm"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_tb7jd")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(39, 25)
+shape = SubResource("CircleShape2D_t5qmr")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="Gem_Sprite" type="Sprite2D" parent="Area2D"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(39, 24)
+texture = SubResource("AtlasTexture_tb7jd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_ptlci")
+}

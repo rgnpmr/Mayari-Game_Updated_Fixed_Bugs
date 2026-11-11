@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ccim6jnw20375"
+path="res://.godot/imported/kanibag 4.ogg-58b3be02a09443883a368c235b902462.oggvorbisstr"
+
+[deps]
+
+source_file="res://Voices/Kanibag/kanibag 4.ogg"
+dest_files=["res://.godot/imported/kanibag 4.ogg-58b3be02a09443883a368c235b902462.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

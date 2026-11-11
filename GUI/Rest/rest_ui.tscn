@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://co1v6r042bdi1"]
+
+[ext_resource type="Script" uid="uid://ds4vu172vj6l8" path="res://GUI/Rest/rest_prompt_ui.gd" id="1_n7wwe"]
+[ext_resource type="FontFile" uid="uid://bqikap07b3uhj" path="res://GUI/fonts/m5x7.ttf" id="2_n7wwe"]
+
+[node name="RestUI" type="CanvasLayer"]
+script = ExtResource("1_n7wwe")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 124.0
+offset_top = -12.0
+offset_right = 203.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_n7wwe")
+theme_override_font_sizes/font_size = 17
+text = "Pahingalo?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 158.0
+offset_right = 438.0
+offset_bottom = 204.0
+
+[node name="ButtonRest" type="Button" parent="Control/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Iyo"
+
+[node name="ButtonCancel" type="Button" parent="Control/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Dae"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://ri54ke7blpp2"]
+
+[ext_resource type="Script" uid="uid://deq0wu2uunon1" path="res://quests/scripts/quest_reward_item.gd" id="1_laj20"]
+[ext_resource type="Script" uid="uid://dsh4ekdjmvfh" path="res://quests/scripts/quest_resource.gd" id="2_lon26"]
+
+[resource]
+script = ExtResource("2_lon26")
+title = "Hanap Perlas"
+description = "Makukua mo ang mga perlas sa pag-kompleto ng mga misyon."
+steps = Array[String](["Berde", "Asul", "Pula"])
+target_amount = 3
+metadata/_custom_type_script = "uid://dsh4ekdjmvfh"

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctnkqllvx2fpa"]
+
+[ext_resource type="Script" uid="uid://b1not0q01d4rw" path="res://GUI/Time_Hud/hud.gd" id="1_1o1w4"]
+[ext_resource type="Script" uid="uid://c80a6qvese5nt" path="res://GUI/Time_Hud/clock_label.gd" id="1_8sges"]
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_1o1w4")
+
+[node name="ClockLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 6.0
+offset_right = 20.0
+offset_bottom = 19.0
+grow_horizontal = 2
+pivot_offset = Vector2(20, 0)
+script = ExtResource("1_8sges")

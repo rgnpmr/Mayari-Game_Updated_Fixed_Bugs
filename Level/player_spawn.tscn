@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci0ao3vqvotu7"]
+
+[ext_resource type="Script" uid="uid://xebu6g01a3cf" path="res://Level/scripts/player_spawn.gd" id="1_5tm1d"]
+[ext_resource type="Texture2D" uid="uid://dbdeqbh42jx6a" path="res://player/Sprites/humanoid.png" id="2_5tm1d"]
+
+[node name="PlayerSpawn" type="Node2D"]
+script = ExtResource("1_5tm1d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.221472, 0.8742497, 0, 1)
+texture_filter = 1
+position = Vector2(0, -6)
+texture = ExtResource("2_5tm1d")
+hframes = 18
+vframes = 8

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://b6f4e4tby8rv2"]
+
+[ext_resource type="Script" uid="uid://deq0wu2uunon1" path="res://quests/scripts/quest_reward_item.gd" id="1_ie81k"]
+[ext_resource type="Script" uid="uid://dsh4ekdjmvfh" path="res://quests/scripts/quest_resource.gd" id="2_2xx0l"]
+
+[resource]
+script = ExtResource("2_2xx0l")
+title = "Kalma"
+description = "Hanapon ang tamang laagan kan mga perlas na may hugis \"C\" para mapa kalma ang bunganga kan Isarog. 
+Igwa ka lamang 60s  para mapa kalma."
+steps = Array[String](["Asul na Perlas", "Pulang Perlas", "Berdeng Perlas"])
+reward_items = Array[ExtResource("1_ie81k")]([null])
+metadata/_custom_type_script = "uid://dsh4ekdjmvfh"

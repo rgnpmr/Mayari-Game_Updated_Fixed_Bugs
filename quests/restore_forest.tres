@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://eyqlhtujtlu1"]
+
+[ext_resource type="Script" uid="uid://deq0wu2uunon1" path="res://quests/scripts/quest_reward_item.gd" id="1_ycgvn"]
+[ext_resource type="Script" uid="uid://dsh4ekdjmvfh" path="res://quests/scripts/quest_resource.gd" id="2_68f3s"]
+[ext_resource type="Resource" uid="uid://ci1x5bllp60jg" path="res://Items/blue_gem.tres" id="2_mw1ej"]
+
+[sub_resource type="Resource" id="Resource_xpbdt"]
+script = ExtResource("1_ycgvn")
+item = ExtResource("2_mw1ej")
+metadata/_custom_type_script = "uid://deq0wu2uunon1"
+
+[resource]
+script = ExtResource("2_68f3s")
+title = "Alisin ang Nasira"
+description = "Alisin ang mga natumba at nasira sa kapaligiran."
+steps = Array[String](["kahoy", "kahoy2", "harong"])
+reward_items = Array[ExtResource("1_ycgvn")]([SubResource("Resource_xpbdt")])
+metadata/_custom_type_script = "uid://dsh4ekdjmvfh"

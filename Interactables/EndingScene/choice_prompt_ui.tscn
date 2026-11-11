@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://drtsy8cx53jtd"]
+
+[ext_resource type="Script" uid="uid://dpf87vicuj461" path="res://Interactables/EndingScene/choice_prompt_ui.gd" id="1_8ivv3"]
+[ext_resource type="Script" uid="uid://bdjtws72a5xmt" path="res://Level/Ending/styled_button.gd" id="2_oylid"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ivv3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="ChoicePromptUi" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_8ivv3")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 176.0
+offset_top = 106.0
+offset_right = 327.0
+offset_bottom = 119.0
+text = "Pumili ng gusto mong Kataposan"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -25.0
+offset_right = 28.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ivv3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="ButtonFight" type="Button" parent="PanelContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.33333334, 0.7764706, 0.105882354, 1)
+text = "Makipaglaban"
+script = ExtResource("2_oylid")
+
+[node name="ButtonTalk" type="Button" parent="PanelContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.33333334, 0.7764706, 0.105882354, 1)
+text = "Makipagusap"
+script = ExtResource("2_oylid")

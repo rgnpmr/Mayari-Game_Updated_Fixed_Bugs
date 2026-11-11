@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbffgn816cfem"]
+
+[ext_resource type="Script" uid="uid://cv8t27visko62" path="res://quests/restore_area/restore_area.gd" id="1_onmgx"]
+[ext_resource type="Texture2D" uid="uid://conoe4xstv5bi" path="res://Assets/Trees/jungle_tree_4.png" id="2_jmnd2"]
+[ext_resource type="Texture2D" uid="uid://cykvpq5j268hi" path="res://Assets/Trees/jungle_tree_10.png" id="3_xgq1y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kchyp"]
+size = Vector2(118, 31)
+
+[node name="RestoreArea" type="Area2D"]
+script = ExtResource("1_onmgx")
+quest_title = "Restore Area"
+healthy_texture = ExtResource("2_jmnd2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_kchyp")
+debug_color = Color(0.6997404, 0, 0.087767415, 0.18039216)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.9999999, -2.9999998)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_xgq1y")

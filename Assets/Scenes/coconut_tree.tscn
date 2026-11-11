@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://cw8jxe2riiq0i"]
+
+[ext_resource type="Script" uid="uid://3iu5rqwusogv" path="res://Props/Plants/plant.gd" id="1_itig8"]
+[ext_resource type="Shader" uid="uid://dmm2e7etyft8m" path="res://Level/Shaders/tree_sway.gdshader" id="1_iypni"]
+[ext_resource type="Texture2D" uid="uid://dwlruv7gxfjuw" path="res://Assets/Trees/tree_1.png" id="2_h3205"]
+[ext_resource type="PackedScene" uid="uid://b1odd86vtn1lh" path="res://GeneralNodes/HitBox/hit_box.tscn" id="3_edqqh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iypni"]
+shader = ExtResource("1_iypni")
+shader_parameter/sway_speed = 1.0000000475
+shader_parameter/sway_strength = 8.0
+shader_parameter/sway_offset = 0.0
+shader_parameter/sway_start = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3oha"]
+size = Vector2(15, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7sa7"]
+size = Vector2(15, 54)
+
+[node name="tree" type="Node2D"]
+script = ExtResource("1_itig8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_iypni")
+position = Vector2(-19.999998, 9.999999)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_h3205")
+
+[node name="HitBox" parent="." instance=ExtResource("3_edqqh")]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-9.5, 10)
+shape = SubResource("RectangleShape2D_l3oha")
+debug_color = Color(0.7019608, 0.29803923, 0, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-9.5, 40)
+shape = SubResource("RectangleShape2D_l7sa7")
+debug_color = Color(0, 0.6, 0.69803923, 0)

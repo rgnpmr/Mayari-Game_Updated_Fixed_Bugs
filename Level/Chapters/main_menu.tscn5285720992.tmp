@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://81ua0bcyvdsl"]
+
+[ext_resource type="Script" uid="uid://bdelx1su54oat" path="res://GUI/main_menu/main_menu.gd" id="1_kqfse"]
+[ext_resource type="Texture2D" uid="uid://b55bnqe1a53dk" path="res://GUI/main_menu/Mayari UI.png" id="2_8w8kg"]
+[ext_resource type="Texture2D" uid="uid://cbv6qv147n0sh" path="res://GUI/UI_Designs/3.png" id="3_8w8kg"]
+[ext_resource type="Script" uid="uid://pqm030aw45iu" path="res://GUI/main_menu/start_button.gd" id="4_ntcxv"]
+[ext_resource type="Script" uid="uid://fysl7i3ad1jm" path="res://GUI/main_menu/resume_button.gd" id="5_nwfwp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loi8h"]
+atlas = ExtResource("3_8w8kg")
+region = Rect2(61, 480, 455, 197)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqfse"]
+atlas = ExtResource("3_8w8kg")
+region = Rect2(541, 479, 462, 198)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w8kg"]
+atlas = ExtResource("3_8w8kg")
+region = Rect2(1034, 479, 451, 198)
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kqfse")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8w8kg")
+expand_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24521106, 0.24521106, 0.24521106, 0.37254903)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -14.0
+offset_right = 71.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 4
+icon = SubResource("AtlasTexture_loi8h")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_ntcxv")
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+size_flags_vertical = 4
+icon = SubResource("AtlasTexture_kqfse")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_nwfwp")
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+size_flags_vertical = 4
+icon = SubResource("AtlasTexture_8w8kg")
+flat = true
+icon_alignment = 1
+expand_icon = true

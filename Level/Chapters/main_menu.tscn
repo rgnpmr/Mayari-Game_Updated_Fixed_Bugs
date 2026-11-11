@@ -1,0 +1,245 @@
+[gd_scene load_steps=9 format=3 uid="uid://81ua0bcyvdsl"]
+
+[ext_resource type="Script" uid="uid://bdelx1su54oat" path="res://GUI/main_menu/main_menu.gd" id="1_kqfse"]
+[ext_resource type="Texture2D" uid="uid://dss7weih2f0yu" path="res://Images/bg.png" id="2_ntcxv"]
+[ext_resource type="Script" uid="uid://pqm030aw45iu" path="res://GUI/main_menu/start_button.gd" id="4_ntcxv"]
+[ext_resource type="Script" uid="uid://fysl7i3ad1jm" path="res://GUI/main_menu/resume_button.gd" id="5_nwfwp"]
+[ext_resource type="Script" uid="uid://demlhdfbja1w1" path="res://GUI/Credits/scripts/credits_button.gd" id="6_8w8kg"]
+[ext_resource type="FontFile" uid="uid://bqikap07b3uhj" path="res://GUI/fonts/m5x7.ttf" id="7_loi8h"]
+[ext_resource type="Script" uid="uid://b8cquaqj6tb3t" path="res://GUI/Credits/scripts/credits_panel.gd" id="7_ntcxv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntcxv"]
+bg_color = Color(0.078431375, 0.05882353, 0.039215688, 0.7137255)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.8509804, 0.5411765, 0.23921569, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 10
+
+[node name="Main Menu" type="Control"]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kqfse")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ntcxv")
+expand_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24705882, 0.24705882, 0.24705882, 0.4)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 38.0
+offset_right = 236.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/CenterContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/CenterContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 4
+text = "Start"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_ntcxv")
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/CenterContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 4
+text = "Continue"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_nwfwp")
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/CenterContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 4
+text = "Credits"
+icon_alignment = 1
+script = ExtResource("6_8w8kg")
+
+[node name="CreditsPanel" type="CanvasLayer" parent="."]
+layer = 5
+visible = false
+script = ExtResource("7_ntcxv")
+
+[node name="ColorRect" type="ColorRect" parent="CreditsPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="PanelContainer" type="PanelContainer" parent="CreditsPanel"]
+custom_minimum_size = Vector2(200, 250)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ntcxv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsPanel/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CreditsPanel/PanelContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85979897, 0.6592393, 0.15282993, 1)
+theme_override_colors/font_shadow_color = Color(0.40495878, 0.309482, 0.21046905, 1)
+theme_override_fonts/font = ExtResource("7_loi8h")
+theme_override_font_sizes/font_size = 14
+text = "C R E D I T S"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CreditsPanel/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsPanel/PanelContainer/VBoxContainer/ScrollContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[center]
+[color=#D98A3D]MAYARI[/color]
+
+A game inspired by 
+The legend of Agama and Kasili
+
+Maria Aurora Gratela-Caballero
+Author: 
+
+
+[color=#D98A3D]GAME DESIGN[/color]
+Regine F. Pamor
+Nicaflor P. Seranno
+
+
+
+[color=#D98A3D]PROGRAMMING[/color]
+Regine F. Pamor
+Jessica Vipinoso
+Harold Hector Vale
+Princess Irish Oliver
+
+
+
+[color=#D98A3D]ART & ANIMATION[/color]
+Regine F. Pamor
+Jessica Vipinoso
+
+
+[color=#D98A3D]MUSIC & SOUND[/color]
+Regine F. Pamor
+Jessica Vipinoso
+
+[color=#D98A3D]VOICE ACTING[/color]
+Harold Hector P. Vale
+Princess Irish Oliver
+Jessica Vipinoso
+Charles John Cordova
+
+
+
+[color=#D98A3D]ASSETS[/color]
+
+[color=#D98A3D]Art & Tilesets[/color]
+Itch.io
+Craftpix.net
+Photoshop
+
+[color=#D98A3D]Fonts[/color]
+Abaddon Light.ttf
+Abaddon Bold.ttf
+Abaddon 5x7.ttf
+
+[color=#D98A3D]Sound Effects[/color]
+freesound.org
+
+[color=#D98A3D]UI & Icons[/color]
+Photoshop
+Icons8.com
+flaticon.com
+
+Background Images are inspired image posted in Google and Facebook.
+
+
+
+[color=#D98A3D]SPECIAL THANKS[/color]
+Ms. Nicaflor P. Serrano  
+[Adviser]
+
+
+[color=#D98A3D]MADE WITH[/color]
+Godot Engine
+
+
+Partido State University
+Bachelor of Science in Information Technology
+2026-2027
+[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="CloseButton" type="Button" parent="CreditsPanel/PanelContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Close"

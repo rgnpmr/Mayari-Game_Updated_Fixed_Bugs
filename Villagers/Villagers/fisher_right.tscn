@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://citj3plshcs3u"]
+
+[ext_resource type="Script" uid="uid://b6snxx3j4scfn" path="res://Villagers/fisher_right.gd" id="1_onw40"]
+[ext_resource type="Texture2D" uid="uid://dn3avx1lntaqw" path="res://Villagers/Spritesheet/idle_right.png" id="2_k7wt3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uugy"]
+atlas = ExtResource("2_k7wt3")
+region = Rect2(113, 0, 113, 217)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw5ot"]
+atlas = ExtResource("2_k7wt3")
+region = Rect2(226, 0, 113, 217)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eejix"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uugy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw5ot")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 1.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_px7h6"]
+radius = 30.0
+height = 196.0
+
+[node name="fisher_right" type="Area2D" unique_id=2043931605]
+position = Vector2(366, 320)
+script = ExtResource("1_onw40")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1143063168]
+sprite_frames = SubResource("SpriteFrames_eejix")
+animation = &"idle_right"
+autoplay = "idle_right"
+frame_progress = 0.7696413
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=683605477]
+visible = false
+shape = SubResource("CapsuleShape2D_px7h6")

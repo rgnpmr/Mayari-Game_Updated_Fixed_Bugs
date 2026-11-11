@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<setupinfo>
+  <arch>all</arch>
+  <reg_talk>1</reg_talk>
+  <msetup_param num="2">
+    <param type="special" id="0">MSETUP_REG</param>
+    <param type="plain" id="1">/L:U</param>
+  </msetup_param>
+  <smex_param num="2">
+    <param type="special" id="0">MSETUP_REG</param>
+    <param type="plain" id="1">/L:U</param>
+  </smex_param>
+  <init_reg_list>
+    <regset>
+      <key>APPLICATION_COMPLETED</key>
+      <regtype>DWORD</regtype>
+      <value>0xffffffff</value>
+      <vartype>plain</vartype>
+    </regset>
+    <regset>
+      <key>REBOOT</key>
+      <regtype>DWORD</regtype>
+      <value>0</value>
+      <vartype>plain</vartype>
+    </regset>
+    <regset>
+      <key>EMERGENCY_REBOOT</key>
+      <regtype>DWORD</regtype>
+      <value>0</value>
+      <vartype>plain</vartype>
+    </regset>
+    <regset>
+      <key>PRIMARY_LANGID</key>
+      <regtype>DWORD</regtype>
+      <value>0</value>
+      <vartype>special</vartype>
+    </regset>
+    <regset>
+      <key>SUB_LANGID</key>
+      <regtype>DWORD</regtype>
+      <value>0</value>
+      <vartype>special</vartype>
+    </regset>
+    <regset>
+      <key>RESIDENCE</key>
+      <regtype>SZ</regtype>
+      <value>RESIDENCE</value>
+      <vartype>special</vartype>
+    </regset>
+    <regset>
+      <key>REGION</key>
+      <regtype>SZ</regtype>
+      <value>REGION</value>
+      <vartype>special</vartype>
+    </regset>
+    <regset>
+      <key>PRINTER_FRIENDLY_NAME</key>
+      <regtype>SZ</regtype>
+      <value></value>
+      <vartype>special</vartype>
+    </regset>
+    <regset>
+      <key>SCANNER_FRIENDLY_NAME</key>
+      <regtype>SZ</regtype>
+      <value></value>
+      <vartype>special</vartype>
+    </regset>
+    <regset>
+      <key>FAX_FRIENDLY_NAME</key>
+      <regtype>SZ</regtype>
+      <value></value>
+      <vartype>special</vartype>
+    </regset>
+  </init_reg_list>
+  <return_reg_list>
+    <regset>
+      <key>APPLICATION_COMPLETED</key>
+      <regtype>DWORD</regtype>
+    </regset>
+    <regset>
+      <key>REBOOT</key>
+      <regtype>DWORD</regtype>
+    </regset>
+    <regset>
+      <key>EMERGENCY_REBOOT</key>
+      <regtype>DWORD</regtype>
+    </regset>
+    <regset>
+      <key>PRINTER_FRIENDLY_NAME</key>
+      <regtype>SZ</regtype>
+    </regset>
+    <regset>
+      <key>SCANNER_FRIENDLY_NAME</key>
+      <regtype>SZ</regtype>
+    </regset>
+    <regset>
+      <key>FAX_FRIENDLY_NAME</key>
+      <regtype>SZ</regtype>
+    </regset>
+  </return_reg_list>
+</setupinfo>

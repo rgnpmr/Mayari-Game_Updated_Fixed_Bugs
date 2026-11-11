@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://d3tsl3flvh8da"]
+
+[ext_resource type="Script" uid="uid://hc7gwekekohq" path="res://Items/item_effects/item_effects.gd" id="1_ela6v"]
+[ext_resource type="Script" uid="uid://b7m31l7q05e30" path="res://Items/scripts/item_data.gd" id="2_a60vj"]
+[ext_resource type="Script" uid="uid://c8v3qyx2jynhh" path="res://animals/script/spawn_scene_effect.gd" id="2_ys8oa"]
+[ext_resource type="Texture2D" uid="uid://cfptvohb78md4" path="res://animals/sprites/Bull_animation_with_shadow.png" id="4_r6do6"]
+
+[sub_resource type="Resource" id="Resource_p2lib"]
+script = ExtResource("2_ys8oa")
+scene_path = "uid://dm6rhp32j3cya"
+metadata/_custom_type_script = "uid://c8v3qyx2jynhh"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n88sh"]
+atlas = ExtResource("4_r6do6")
+region = Rect2(81, 267, 31, 40)
+
+[resource]
+script = ExtResource("2_a60vj")
+name = "Bull"
+texture = SubResource("AtlasTexture_n88sh")
+effects = Array[ExtResource("1_ela6v")]([SubResource("Resource_p2lib")])
+metadata/_custom_type_script = "uid://b7m31l7q05e30"

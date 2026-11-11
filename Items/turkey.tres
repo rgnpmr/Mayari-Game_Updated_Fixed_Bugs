@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://ey47prswvsw1"]
+
+[ext_resource type="Script" uid="uid://hc7gwekekohq" path="res://Items/item_effects/item_effects.gd" id="1_7xgrh"]
+[ext_resource type="Script" uid="uid://b7m31l7q05e30" path="res://Items/scripts/item_data.gd" id="2_aawf0"]
+[ext_resource type="Script" uid="uid://c8v3qyx2jynhh" path="res://animals/script/spawn_scene_effect.gd" id="2_fttcp"]
+[ext_resource type="Texture2D" uid="uid://d0yc5xa2l4l2i" path="res://animals/sprites/Turkey_animation_with_shadow.png" id="3_aawf0"]
+
+[sub_resource type="Resource" id="Resource_me38w"]
+script = ExtResource("2_fttcp")
+scene_path = "uid://5wbkij7gt0bv"
+metadata/_custom_type_script = "uid://c8v3qyx2jynhh"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fttcp"]
+atlas = ExtResource("3_aawf0")
+region = Rect2(64, 1, 32, 30)
+
+[resource]
+script = ExtResource("2_aawf0")
+name = "Turkey"
+texture = SubResource("AtlasTexture_fttcp")
+effects = Array[ExtResource("1_7xgrh")]([SubResource("Resource_me38w")])
+metadata/_custom_type_script = "uid://b7m31l7q05e30"

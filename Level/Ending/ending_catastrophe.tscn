@@ -1,0 +1,111 @@
+[gd_scene load_steps=6 format=3 uid="uid://c41dlcluvipyf"]
+
+[ext_resource type="Texture2D" uid="uid://kn10obmiqhgu" path="res://Images/crater_raining.png" id="1_a8b0m"]
+[ext_resource type="Script" uid="uid://ck63k5jdwjhvs" path="res://Level/Ending/ending_menu_button.gd" id="2_dilut"]
+[ext_resource type="PackedScene" uid="uid://cqv152x2myyxs" path="res://Level/Ending/Ending_Background/village_ruin.tscn" id="2_t5u6j"]
+
+[sub_resource type="Gradient" id="Gradient_ns6ro"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a8b0m"]
+gradient = SubResource("Gradient_ns6ro")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="EndingCatastrophe" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a8b0m")
+expand_mode = 2
+
+[node name="village" parent="CanvasLayer" instance=ExtResource("2_t5u6j")]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21568628, 0.21176471, 0.21176471, 0.3137255)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/ColorRect"]
+modulate = Color(0, 0, 0, 0.4627451)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_a8b0m")
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.506
+anchor_top = 0.48333332
+anchor_right = 0.506
+anchor_bottom = 0.48333332
+offset_left = -82.999985
+offset_top = -65.0
+offset_right = 82.000015
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.08351644, 0.20808762, 0.10805732, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "THE END"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SubtitleLabel" type="Label" parent="CanvasLayer/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.335
+anchor_top = 0.46166667
+anchor_right = 0.667
+anchor_bottom = 0.62166667
+offset_left = -100.5
+offset_top = -6.5
+offset_right = 100.5
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Agama and Kasili's rivalry cracked the mountain open.
+The village below was left to face what the guardians had broken.
+What began as a fight for control became the very ruin they feared,
+and the village below paid the price of their pride."
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = 98.0
+offset_right = 19.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu
+"
+script = ExtResource("2_dilut")
+main_menu_scene = "uid://81ua0bcyvdsl"

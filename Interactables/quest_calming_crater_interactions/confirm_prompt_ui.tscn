@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu0s7e7kes3jw"]
+
+[ext_resource type="Script" uid="uid://cys0ocsv8ybj3" path="res://Interactables/quest_calming_crater_interactions/confirm_prompt_ui.gd" id="1_eo7i6"]
+[ext_resource type="FontFile" uid="uid://bqikap07b3uhj" path="res://GUI/fonts/m5x7.ttf" id="2_eo7i6"]
+
+[node name="ConfrimPromptUI" type="CanvasLayer"]
+script = ExtResource("1_eo7i6")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 382.0
+offset_top = 161.0
+offset_right = 432.0
+offset_bottom = 179.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_eo7i6")
+text = "Ilagay?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 382.0
+offset_top = 184.0
+offset_right = 422.0
+offset_bottom = 230.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Iyo"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Dae"

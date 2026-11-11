@@ -1,0 +1,231 @@
+[gd_scene load_steps=19 format=3 uid="uid://dwxjcpvocurn7"]
+
+[ext_resource type="Script" uid="uid://o0fg52c1vcqk" path="res://Props/Plants/Item_glow.gd" id="1_6jkef"]
+[ext_resource type="Texture2D" uid="uid://ci2knfi17x1r" path="res://Assets/Trees/middle_lane_tree11.png" id="2_tobm3"]
+[ext_resource type="PackedScene" uid="uid://b1odd86vtn1lh" path="res://GeneralNodes/HitBox/hit_box.tscn" id="3_g4dj8"]
+[ext_resource type="Script" uid="uid://qiyturhy3wl8" path="res://Assets/scripts/key_prompt_area.gd" id="4_gm0m4"]
+[ext_resource type="PackedScene" uid="uid://ch0h1e20gdc7c" path="res://Interactables/quest_restore_interactions/quest_restore_interactables.tscn" id="6_q3vaa"]
+[ext_resource type="Texture2D" uid="uid://p3vkovt1l7qr" path="res://Assets/kb.png" id="7_x663s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4dj8"]
+size = Vector2(63, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gm0m4"]
+size = Vector2(63, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8tli"]
+size = Vector2(65, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhdu0"]
+atlas = ExtResource("7_x663s")
+region = Rect2(165, 21, 16, 19)
+
+[sub_resource type="Animation" id="Animation_e0mvr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mdqmn"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -52)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b4cj5"]
+resource_name = "hide"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -29), Vector2(0, -29)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_opq74"]
+resource_name = "show"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -29), Vector2(0, -29)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fpsh"]
+_data = {
+&"RESET": SubResource("Animation_e0mvr"),
+&"default": SubResource("Animation_mdqmn"),
+&"hide": SubResource("Animation_b4cj5"),
+&"show": SubResource("Animation_opq74")
+}
+
+[sub_resource type="Animation" id="Animation_q3vaa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gm0m4"]
+resource_name = "glow"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667, 1.3, 2, 2.5666666, 3.1333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.7137255), Color(1, 1, 1, 0.24313726), Color(1, 1, 1, 0.5568628), Color(1, 1, 1, 0.72156864), Color(1, 1, 1, 0.72156864)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7afai"]
+_data = {
+&"RESET": SubResource("Animation_q3vaa"),
+&"glow": SubResource("Animation_gm0m4")
+}
+
+[node name="Trunk" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_6jkef")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5358897
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_tobm3")
+
+[node name="HitBox" parent="." instance=ExtResource("3_g4dj8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_g4dj8")
+debug_color = Color(0.7019608, 0.5372549, 0, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+texture_filter = 1
+position = Vector2(-0.5, 5)
+shape = SubResource("RectangleShape2D_gm0m4")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_gm0m4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_n8tli")
+debug_color = Color(0.7019608, 0.62352943, 0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(2, 20)
+scale = Vector2(0.7, 0.7)
+texture = SubResource("AtlasTexture_rhdu0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_2fpsh")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7afai")
+}
+
+[node name="QuestRestoreInteraction" parent="." instance=ExtResource("6_q3vaa")]

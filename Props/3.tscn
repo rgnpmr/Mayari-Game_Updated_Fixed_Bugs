@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr6s13na1vu0b"]
+
+[ext_resource type="Script" uid="uid://3iu5rqwusogv" path="res://Props/growing_plants/Plants/plant.gd" id="1_v32lh"]
+[ext_resource type="Texture2D" uid="uid://d1k8si351edl4" path="res://Assets/Bushes/Bush4_1.png" id="2_v32lh"]
+[ext_resource type="PackedScene" uid="uid://b1odd86vtn1lh" path="res://GeneralNodes/HitBox/hit_box.tscn" id="3_6rbiw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4dj8"]
+size = Vector2(40, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gm0m4"]
+size = Vector2(40, 18)
+
+[node name="Trunk" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_v32lh")
+quest_title = "Clear the Area"
+quest_step_id = "dead bush"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_v32lh")
+
+[node name="HitBox" parent="." instance=ExtResource("3_6rbiw")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_g4dj8")
+debug_color = Color(0.70196074, 0.5378309, 0, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+texture_filter = 1
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_gm0m4")

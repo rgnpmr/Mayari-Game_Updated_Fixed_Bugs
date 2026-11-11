@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=2 format=3 uid="uid://daq845y13hf04"]
+
+[ext_resource type="Script" uid="uid://cyhnpvoavbbwt" path="res://npc/scripts/npc_resource.gd" id="1_k871x"]
+
+[resource]
+script = ExtResource("1_k871x")
+npc_name = "Agama"
+metadata/_custom_type_script = "uid://cyhnpvoavbbwt"

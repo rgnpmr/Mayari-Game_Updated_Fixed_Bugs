@@ -1,0 +1,380 @@
+[gd_scene load_steps=20 format=3 uid="uid://f3rwxlg108wi"]
+
+[ext_resource type="Script" uid="uid://iawhaddq532m" path="res://GUI/pause_menu/pause_menu.gd" id="1_4w82k"]
+[ext_resource type="Texture2D" uid="uid://brwur21d0r2u6" path="res://Items/sprites/items.png" id="2_ewgu5"]
+[ext_resource type="Script" uid="uid://dvsm6mj7aj10i" path="res://GUI/pause_menu/inventory/scripts/inventory_world_dropzone.gd" id="2_u3762"]
+[ext_resource type="PackedScene" uid="uid://dcqael056ug75" path="res://GUI/pause_menu/inventory/inventory_slot.tscn" id="3_36pfd"]
+[ext_resource type="Texture2D" uid="uid://2qqyq0wu48yc" path="res://Assets/icons/icons8-exit-100.png" id="3_ak53x"]
+[ext_resource type="Texture2D" uid="uid://cwolsywn0qcsn" path="res://GUI/UI_Designs/PNG/pause/header.png" id="3_cvrss"]
+[ext_resource type="Script" uid="uid://xk0o6qrd7b6s" path="res://GUI/pause_menu/inventory/scripts/inventory_ui.gd" id="3_ewgu5"]
+[ext_resource type="Resource" uid="uid://b5muujov7r0fh" path="res://GUI/pause_menu/inventory/player_inventory.tres" id="4_ewgu5"]
+[ext_resource type="PackedScene" uid="uid://catb6v76hyyki" path="res://GUI/pause_menu/quests/quest_item.tscn" id="7_8rjl7"]
+[ext_resource type="Script" uid="uid://mihxx6wlsgx7" path="res://GUI/pause_menu/quests_ui.gd" id="7_dvxeg"]
+[ext_resource type="FontFile" uid="uid://2bs28v2ieaak" path="res://GUI/fonts/Abaddon Bold.ttf" id="9_iqcer"]
+[ext_resource type="FontFile" uid="uid://bqikap07b3uhj" path="res://GUI/fonts/m5x7.ttf" id="10_qikl0"]
+[ext_resource type="PackedScene" uid="uid://boqo3gq7doy7g" path="res://GUI/pause_menu/quests/quest_step_item.tscn" id="11_40d0i"]
+[ext_resource type="Texture2D" uid="uid://dooj2464brifl" path="res://Assets/icons/icons8-mute-50.png" id="15_ak53x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ptsh"]
+atlas = ExtResource("3_ak53x")
+region = Rect2(12, 12, 76, 76)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fgl3m"]
+texture = ExtResource("3_cvrss")
+
+[sub_resource type="LabelSettings" id="LabelSettings_u3762"]
+line_spacing = 5.0
+paragraph_spacing = 2.0
+font = ExtResource("9_iqcer")
+font_size = 25
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewgu5"]
+atlas = ExtResource("2_ewgu5")
+region = Rect2(95, 0, 35, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sn1ji"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_ewgu5")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 4
+script = ExtResource("1_4w82k")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.008765745, 0.018005133, 0.010983195, 0.31764707)
+script = ExtResource("2_u3762")
+
+[node name="CloseButton" type="Button" parent="Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -93.0
+offset_top = 22.0
+offset_right = -67.0
+offset_bottom = 48.0
+grow_horizontal = 0
+icon = SubResource("AtlasTexture_8ptsh")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="Control"]
+modulate = Color(1, 1, 1, 0.72156864)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_top = 11.0
+offset_right = 42.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.6627451)
+theme_override_styles/normal = SubResource("StyleBoxTexture_fgl3m")
+label_settings = SubResource("LabelSettings_u3762")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+max_polyphony = 4
+
+[node name="TabContainer" type="TabContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = 47.0
+offset_right = -63.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 1
+
+[node name="Inventory" type="Control" parent="Control/TabContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/TabContainer/Inventory"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 30.0
+offset_right = 288.0
+offset_bottom = 118.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_sn1ji")
+
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+columns = 5
+script = ExtResource("3_ewgu5")
+data = ExtResource("4_ewgu5")
+
+[node name="InventorySlot" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_36pfd")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_36pfd")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_36pfd")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_36pfd")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_36pfd")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_36pfd")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_36pfd")]
+layout_mode = 2
+
+[node name="ItemDescription" type="Label" parent="Control/TabContainer/Inventory"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 117.0
+offset_right = 291.0
+offset_bottom = 156.0
+theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 0.7019608)
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("10_qikl0")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Quests" type="Control" parent="Control/TabContainer"]
+texture_filter = 1
+layout_mode = 2
+script = ExtResource("7_dvxeg")
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/Quests"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 185.0
+offset_bottom = 240.0
+follow_focus = true
+scroll_vertical_custom_step = 100.0
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/TabContainer/Quests/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="QuestItem" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_8rjl7")]
+layout_mode = 2
+
+[node name="QuestItem2" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_8rjl7")]
+layout_mode = 2
+
+[node name="QuestItem3" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_8rjl7")]
+layout_mode = 2
+
+[node name="QuestItem4" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_8rjl7")]
+layout_mode = 2
+
+[node name="QuestItem5" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_8rjl7")]
+layout_mode = 2
+
+[node name="QuestItem6" parent="Control/TabContainer/Quests/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_8rjl7")]
+layout_mode = 2
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="Control/TabContainer/Quests"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -172.0
+offset_top = 19.0
+offset_right = -10.0
+offset_bottom = 219.0
+grow_horizontal = 0
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Quests/ScrollContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TitleLabel" type="Label" parent="Control/TabContainer/Quests/ScrollContainer2/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(215, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_iqcer")
+text = "Quest Title "
+autowrap_mode = 2
+
+[node name="IconRect" type="TextureRect" parent="Control/TabContainer/Quests/ScrollContainer2/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="DescriptionLabel" type="Label" parent="Control/TabContainer/Quests/ScrollContainer2/VBoxContainer"]
+modulate = Color(0.60861856, 0.60861856, 0.60861856, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(215, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_qikl0")
+text = "Quest description"
+autowrap_mode = 2
+
+[node name="SpacerControl" type="Control" parent="Control/TabContainer/Quests/ScrollContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="QuestStepItem" parent="Control/TabContainer/Quests/ScrollContainer2/VBoxContainer" instance=ExtResource("11_40d0i")]
+texture_filter = 1
+layout_mode = 2
+
+[node name="QuestStepItem2" parent="Control/TabContainer/Quests/ScrollContainer2/VBoxContainer" instance=ExtResource("11_40d0i")]
+texture_filter = 1
+layout_mode = 2
+
+[node name="QuestStepItem3" parent="Control/TabContainer/Quests/ScrollContainer2/VBoxContainer" instance=ExtResource("11_40d0i")]
+texture_filter = 1
+layout_mode = 2
+
+[node name="QuestStepItem4" parent="Control/TabContainer/Quests/ScrollContainer2/VBoxContainer" instance=ExtResource("11_40d0i")]
+texture_filter = 1
+layout_mode = 2
+
+[node name="QuestStepItem5" parent="Control/TabContainer/Quests/ScrollContainer2/VBoxContainer" instance=ExtResource("11_40d0i")]
+texture_filter = 1
+layout_mode = 2
+
+[node name="QuestStepItem6" parent="Control/TabContainer/Quests/ScrollContainer2/VBoxContainer" instance=ExtResource("11_40d0i")]
+texture_filter = 1
+layout_mode = 2
+
+[node name="System" type="Control" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/System"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -69.5
+offset_right = 99.0
+offset_bottom = 69.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_Save" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Save"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button_Quit" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Quit"
+icon_alignment = 1
+expand_icon = true
+
+[node name="SettingsCard" type="PanelContainer" parent="Control/TabContainer/System/VBoxContainer"]
+layout_mode = 2
+
+[node name="SettingsContent" type="VBoxContainer" parent="Control/TabContainer/System/VBoxContainer/SettingsCard"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="MusicRow" type="HBoxContainer" parent="Control/TabContainer/System/VBoxContainer/SettingsCard/SettingsContent"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MusicMuteButton" type="Button" parent="Control/TabContainer/System/VBoxContainer/SettingsCard/SettingsContent/MusicRow"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("15_ak53x")
+expand_icon = true
+
+[node name="Label" type="Label" parent="Control/TabContainer/System/VBoxContainer/SettingsCard/SettingsContent/MusicRow"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Control/TabContainer/System/VBoxContainer/SettingsCard/SettingsContent/MusicRow"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MusicPercentLabel" type="Label" parent="Control/TabContainer/System/VBoxContainer/SettingsCard/SettingsContent/MusicRow"]
+texture_filter = 1
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "100%"
+
+[node name="AmbienceRow" type="HBoxContainer" parent="Control/TabContainer/System/VBoxContainer/SettingsCard/SettingsContent"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AmbienceMuteButton" type="Button" parent="Control/TabContainer/System/VBoxContainer/SettingsCard/SettingsContent/AmbienceRow"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("15_ak53x")
+expand_icon = true
+
+[node name="Label" type="Label" parent="Control/TabContainer/System/VBoxContainer/SettingsCard/SettingsContent/AmbienceRow"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "Ambience"
+
+[node name="AmbienceSlider" type="HSlider" parent="Control/TabContainer/System/VBoxContainer/SettingsCard/SettingsContent/AmbienceRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AmbiencePercentLabel" type="Label" parent="Control/TabContainer/System/VBoxContainer/SettingsCard/SettingsContent/AmbienceRow"]
+texture_filter = 1
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "100%"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bpumfw353ko6s"
+path="res://.godot/imported/Gurang na Baye_1.ogg-4676019485734991f13036c3beef114f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Voices/gurang_na_baye/Gurang na Baye_1.ogg"
+dest_files=["res://.godot/imported/Gurang na Baye_1.ogg-4676019485734991f13036c3beef114f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

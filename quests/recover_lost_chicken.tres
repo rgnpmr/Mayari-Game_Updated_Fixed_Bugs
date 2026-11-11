@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=7 format=3 uid="uid://dky6v2w81adbd"]
+
+[ext_resource type="Script" uid="uid://deq0wu2uunon1" path="res://quests/scripts/quest_reward_item.gd" id="1_jc1mr"]
+[ext_resource type="Texture2D" uid="uid://bqjltn3wt57im" path="res://animals/sprites/Rooster_animation_with_shadow.png" id="1_tfteq"]
+[ext_resource type="Script" uid="uid://dsh4ekdjmvfh" path="res://quests/scripts/quest_resource.gd" id="2_bxb24"]
+[ext_resource type="Resource" uid="uid://bsrqa76n6ix5u" path="res://Items/green_ gem.tres" id="2_tfteq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfteq"]
+atlas = ExtResource("1_tfteq")
+region = Rect2(6, 102, 20, 26)
+
+[sub_resource type="Resource" id="Resource_6qpfe"]
+script = ExtResource("1_jc1mr")
+item = ExtResource("2_tfteq")
+metadata/_custom_type_script = "uid://deq0wu2uunon1"
+
+[resource]
+script = ExtResource("2_bxb24")
+title = "Hanap Manok"
+description = "Hanapin ang manok sa kakahoyan."
+steps = Array[String](["Hanap Manok", "Balik Manok"])
+step_targets = Array[int]([2])
+reward_items = Array[ExtResource("1_jc1mr")]([SubResource("Resource_6qpfe")])
+icon = SubResource("AtlasTexture_tfteq")
+metadata/_custom_type_script = "uid://dsh4ekdjmvfh"

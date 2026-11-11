@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=3 format=3 uid="uid://s103b450rere"]
+
+[ext_resource type="Script" uid="uid://cyhnpvoavbbwt" path="res://npc/scripts/npc_resource.gd" id="1_mlker"]
+[ext_resource type="Texture2D" uid="uid://bqsbb3nk8b03w" path="res://npc/sprites/npc_sprite.png" id="2_4pyck"]
+
+[resource]
+script = ExtResource("1_mlker")
+npc_name = "Elder"
+sprite = ExtResource("2_4pyck")
+metadata/_custom_type_script = "uid://cyhnpvoavbbwt"

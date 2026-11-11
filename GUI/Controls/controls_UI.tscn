@@ -1,0 +1,161 @@
+[gd_scene load_steps=10 format=3 uid="uid://bguj0q20dsg6r"]
+
+[ext_resource type="Script" uid="uid://p0gs1vxynqcw" path="res://GUI/Controls/controls_ui.gd" id="1_q5x3b"]
+[ext_resource type="FontFile" uid="uid://bqikap07b3uhj" path="res://GUI/fonts/m5x7.ttf" id="3_2fvrv"]
+[ext_resource type="Texture2D" uid="uid://p3vkovt1l7qr" path="res://Assets/kb.png" id="3_5ddan"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ddan"]
+bg_color = Color(0.22745098, 0.22745098, 0.22352941, 0.44705883)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.38459277, 0.2435469, 0.020305375, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox0p8"]
+atlas = ExtResource("3_5ddan")
+region = Rect2(54, 21, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_faolj"]
+atlas = ExtResource("3_5ddan")
+region = Rect2(45, 41, 18, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkib1"]
+atlas = ExtResource("3_5ddan")
+region = Rect2(63, 42, 19, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urkkg"]
+atlas = ExtResource("3_5ddan")
+region = Rect2(81, 41, 17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb8gl"]
+atlas = ExtResource("3_5ddan")
+region = Rect2(0, 0, 25, 21)
+
+[node name="Control_UI" type="CanvasLayer"]
+layer = 50
+script = ExtResource("1_q5x3b")
+
+[node name="Control" type="Control" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -58.0
+offset_right = 108.0
+offset_bottom = 62.0
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -42.5
+offset_right = 34.0
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ddan")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2fvrv")
+theme_override_font_sizes/font_size = 14
+text = "CONTROLS"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/VBoxContainer/HBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_ox0p8")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2fvrv")
+theme_override_font_sizes/font_size = 11
+text = "Taas"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/VBoxContainer/HBoxContainer4"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_faolj")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2fvrv")
+theme_override_font_sizes/font_size = 11
+text = "Kaliwa"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/VBoxContainer/HBoxContainer5"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_fkib1")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2fvrv")
+theme_override_font_sizes/font_size = 11
+text = "Pababa"
+horizontal_alignment = 1
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Control/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/VBoxContainer/HBoxContainer6"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_urkkg")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2fvrv")
+theme_override_font_sizes/font_size = 11
+text = "Kanan"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/VBoxContainer/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_eb8gl")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2fvrv")
+theme_override_font_sizes/font_size = 11
+text = "Pause"
+horizontal_alignment = 2

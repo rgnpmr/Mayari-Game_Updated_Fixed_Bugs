@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3j22khg80wh0"]
+
+[ext_resource type="Script" uid="uid://bpf4bmc4bpmya" path="res://touch_controls.gd" id="1_87qna"]
+
+[node name="TouchControls" type="CanvasLayer"]
+script = ExtResource("1_87qna")

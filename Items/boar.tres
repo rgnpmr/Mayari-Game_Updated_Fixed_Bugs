@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://b72gb0u08q227"]
+
+[ext_resource type="Script" uid="uid://hc7gwekekohq" path="res://Items/item_effects/item_effects.gd" id="1_pve6y"]
+[ext_resource type="Script" uid="uid://b7m31l7q05e30" path="res://Items/scripts/item_data.gd" id="2_8ytn0"]
+[ext_resource type="Texture2D" uid="uid://cvhkus6uvqq5" path="res://animals/sprites/Boar_Walk_with_shadow.png" id="3_8ytn0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n28fc"]
+atlas = ExtResource("3_8ytn0")
+region = Rect2(69, 7, 21, 19)
+
+[resource]
+script = ExtResource("2_8ytn0")
+name = "baboy ramo"
+texture = SubResource("AtlasTexture_n28fc")
+metadata/_custom_type_script = "uid://b7m31l7q05e30"

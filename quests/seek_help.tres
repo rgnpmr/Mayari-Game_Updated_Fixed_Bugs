@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://33kmx7f307ss"]
+
+[ext_resource type="Script" uid="uid://deq0wu2uunon1" path="res://quests/scripts/quest_reward_item.gd" id="1_3nv6b"]
+[ext_resource type="Script" uid="uid://dsh4ekdjmvfh" path="res://quests/scripts/quest_resource.gd" id="2_paqwn"]
+
+[resource]
+script = ExtResource("2_paqwn")
+title = "Hagad Tabang"
+description = "Humingi ng tulong sa enkanto."
+steps = Array[String](["Kanibag", "Enkanto"])
+metadata/_custom_type_script = "uid://dsh4ekdjmvfh"

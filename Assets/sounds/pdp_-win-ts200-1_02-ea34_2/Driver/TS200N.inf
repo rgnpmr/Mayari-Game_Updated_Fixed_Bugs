@@ -1,0 +1,42 @@
+; TS200N.inf
+;
+
+[Version]
+Signature="$Windows NT$"
+Provider=%CANON%
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Class=USB
+DriverVer=06/15/2023, 1.0.1.0
+CatalogFile=TS200N.cat
+
+[Manufacturer]
+Canon = Canon,NTamd64
+
+[DestinationDirs]
+DefaultDestDir=11
+
+[SourceDisksNames]
+1=%DISKLABEL%,,
+
+[SourceDisksFiles]
+
+[Canon]
+Canon TS200 series Null Driver 1=Canon_Install, USB\VID_04A9&PID_182B&MI_01
+Canon TS200 series Null Driver 2=Canon_Install, USB\VID_04A9&PID_182B&MI_02
+
+[Canon.NTamd64]
+Canon TS200 series Null Driver 1=Canon_Install, USB\VID_04A9&PID_182B&MI_01
+Canon TS200 series Null Driver 2=Canon_Install, USB\VID_04A9&PID_182B&MI_02
+
+[Canon_Install]
+CopyFiles=Nothing
+AddReg=Nothing
+
+[Nothing]
+
+[Canon_Install.Services]
+AddService = ,2;
+
+[Strings]
+CANON="Canon"
+DISKLABEL="Canon TS200 series Null Driver"

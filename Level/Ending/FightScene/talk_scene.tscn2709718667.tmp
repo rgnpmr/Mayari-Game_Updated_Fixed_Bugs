@@ -1,0 +1,246 @@
+[gd_scene load_steps=16 format=3 uid="uid://ba2eu4ydpn7xf"]
+
+[ext_resource type="Script" uid="uid://bps5y3ouyklt3" path="res://Level/Ending/FightScene/talk_scene.gd" id="1_1yyvb"]
+[ext_resource type="Resource" uid="uid://daq845y13hf04" path="res://npc/00_npcs/agama.tres" id="2_l1eyf"]
+[ext_resource type="Resource" uid="uid://b3rjw7ft3fo6u" path="res://npc/00_npcs/kasili.tres" id="3_vbwqs"]
+[ext_resource type="Texture2D" uid="uid://dqgo0i3qwgx1h" path="res://Images/catastrophe_crater.png" id="4_v4umu"]
+[ext_resource type="Texture2D" uid="uid://bmixwku2r43h7" path="res://Images/agama_crab_form.png" id="5_a0ewj"]
+[ext_resource type="Texture2D" uid="uid://brwur21d0r2u6" path="res://Items/sprites/items.png" id="6_l7ppq"]
+[ext_resource type="FontFile" uid="uid://bqikap07b3uhj" path="res://GUI/fonts/m5x7.ttf" id="7_bbfj2"]
+[ext_resource type="FontFile" uid="uid://2bs28v2ieaak" path="res://GUI/fonts/Abaddon Bold.ttf" id="8_qiovs"]
+[ext_resource type="Texture2D" uid="uid://df030lw4gmf6d" path="res://Images/calm_kasili.png" id="9_1yyvb"]
+[ext_resource type="Script" uid="uid://ueesf2ffbpr8" path="res://Interactables/dialogue/scripts/dialogue_text.gd" id="10_xaocr"]
+[ext_resource type="AudioStream" uid="uid://c1141bgrjbp3x" path="res://GUI/dialogue_system/audio/voice_blip.wav" id="11_rc5q1"]
+
+[sub_resource type="Gradient" id="Gradient_mxwb3"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mxwb3"]
+gradient = SubResource("Gradient_mxwb3")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xhnl"]
+atlas = ExtResource("6_l7ppq")
+region = Rect2(97, 2, 29, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7xhnl"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_7xhnl")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="TalkScene" type="CanvasLayer"]
+script = ExtResource("1_1yyvb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_v4umu")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.4627451)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -172.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_mxwb3")
+
+[node name="Agama" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="AgamaCharacter" type="Sprite2D" parent="Agama"]
+position = Vector2(54.000004, 226)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_a0ewj")
+
+[node name="PanelContainer" type="PanelContainer" parent="Agama"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -90.0
+offset_right = 222.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_7xhnl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Agama/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.4392157, 0.39607844, 0.32156864, 1)
+theme_override_fonts/normal_font = ExtResource("7_bbfj2")
+theme_override_fonts/bold_font = ExtResource("8_qiovs")
+bbcode_enabled = true
+text = "
+"
+scroll_active = false
+autowrap_mode = 2
+
+[node name="NextButton" type="Label" parent="Agama"]
+offset_left = 148.0
+offset_top = 264.0
+offset_right = 459.0
+offset_bottom = 277.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_bbfj2")
+text = "press \"space\" to continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="Agama"]
+offset_left = 420.0
+offset_top = 191.0
+offset_right = 469.0
+offset_bottom = 209.0
+theme_override_colors/font_color = Color(0.89411765, 0.8627451, 0.79607844, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("8_qiovs")
+text = "AGAMA"
+
+[node name="Kasili" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="CalmKasili" type="Sprite2D" parent="Kasili"]
+position = Vector2(453, 115)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_1yyvb")
+
+[node name="PanelContainer" type="PanelContainer" parent="Kasili"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -215.0
+offset_top = -90.0
+offset_right = 124.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_7xhnl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Kasili/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.4392157, 0.39607844, 0.32156864, 1)
+theme_override_fonts/normal_font = ExtResource("7_bbfj2")
+theme_override_fonts/bold_font = ExtResource("8_qiovs")
+bbcode_enabled = true
+text = "
+"
+scroll_active = false
+autowrap_mode = 2
+
+[node name="NextButton" type="Label" parent="Kasili"]
+offset_left = 50.0
+offset_top = 264.0
+offset_right = 361.0
+offset_bottom = 277.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_bbfj2")
+text = "press \"space\" to continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="Kasili"]
+offset_left = 38.0
+offset_top = 190.0
+offset_right = 87.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0.89411765, 0.8627451, 0.79607844, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("8_qiovs")
+text = "KASILI"
+
+[node name="StoryLines" type="Node" parent="."]
+
+[node name="DialogueText" type="Node" parent="StoryLines"]
+script = ExtResource("10_xaocr")
+text = "Kasili lowers its head in shame, ashamed but no longer defiant."
+npc_info = ExtResource("3_vbwqs")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText2" type="Node" parent="StoryLines"]
+script = ExtResource("10_xaocr")
+text = "\"I did not understand the weight of my strength\"  it murmurs"
+npc_info = ExtResource("3_vbwqs")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText3" type="Node" parent="StoryLines"]
+script = ExtResource("10_xaocr")
+text = "Kasili coils back, hissing. 
+\"Set it right? You're the one crushing! Get off my current, Agama!\""
+npc_info = ExtResource("3_vbwqs")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText4" type="Node" parent="StoryLines"]
+script = ExtResource("10_xaocr")
+text = "Agama's thunderous voice softens."
+npc_info = ExtResource("2_l1eyf")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText5" type="Node" parent="StoryLines"]
+script = ExtResource("10_xaocr")
+text = "\"Strength without care is what nearly caused the lives of the village below. But shame without change protects no one either.\""
+npc_info = ExtResource("2_l1eyf")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText6" type="Node" parent="StoryLines"]
+script = ExtResource("10_xaocr")
+text = "Kasili raises its head. \"Then let me prove it. I vow to guard these waters, not to master them.\""
+npc_info = ExtResource("3_vbwqs")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText7" type="Node" parent="StoryLines"]
+script = ExtResource("10_xaocr")
+text = "Agama presses a claw to the stone beside Kasili's coils."
+npc_info = ExtResource("2_l1eyf")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText8" type="Node" parent="StoryLines"]
+script = ExtResource("10_xaocr")
+text = "\"And I vow to watch over this mountain always, so its strength serves the village, not threatens it.\""
+npc_info = ExtResource("3_vbwqs")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText9" type="Node" parent="StoryLines"]
+script = ExtResource("10_xaocr")
+text = "The gemstones Agama channeled earlier pulse once, faintly, as if sealing the promise."
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText10" type="Node" parent="StoryLines"]
+script = ExtResource("10_xaocr")
+text = "Both of them calm down and the ground shaking stop, "
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_rc5q1")
+max_polyphony = 6
+bus = &"SPX"

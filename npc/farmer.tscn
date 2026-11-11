@@ -1,0 +1,133 @@
+[gd_scene load_steps=19 format=3 uid="uid://bvlmv7kmts7qk"]
+
+[ext_resource type="Script" uid="uid://7trqjhrbsi8k" path="res://npc/scripts/npc.gd" id="1_vgktd"]
+[ext_resource type="Texture2D" uid="uid://bdkgoauindt4" path="res://Villagers/Villagers/Spritesheet/Farmer-walk-trimmed.png" id="2_friql"]
+[ext_resource type="Texture2D" uid="uid://c8kofu2elswbo" path="res://player/Sprites/Shadow.png" id="3_friql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a25j"]
+atlas = ExtResource("2_friql")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acc4c"]
+atlas = ExtResource("2_friql")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w10m3"]
+atlas = ExtResource("2_friql")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isphk"]
+atlas = ExtResource("2_friql")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0bne"]
+atlas = ExtResource("2_friql")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3jop"]
+atlas = ExtResource("2_friql")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tce7i"]
+atlas = ExtResource("2_friql")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syt5y"]
+atlas = ExtResource("2_friql")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx7aa"]
+atlas = ExtResource("2_friql")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt5qs"]
+atlas = ExtResource("2_friql")
+region = Rect2(1024, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55sls"]
+atlas = ExtResource("2_friql")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea2qc"]
+atlas = ExtResource("2_friql")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wnpq"]
+atlas = ExtResource("2_friql")
+region = Rect2(512, 512, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_67i5h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a25j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acc4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w10m3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isphk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0bne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3jop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tce7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syt5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx7aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt5qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55sls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea2qc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wnpq")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smh0m"]
+radius = 6.0
+height = 36.0
+
+[node name="farmer" type="CharacterBody2D"]
+script = ExtResource("1_vgktd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_67i5h")
+animation = &"walking"
+autoplay = "walking"
+frame_progress = 0.9783838
+
+[node name="ShadowSprite" type="Sprite2D" parent="AnimatedSprite2D"]
+modulate = Color(0.12662369, 0.12326931, 0.12326931, 0.78431374)
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-3.7500038, 87.5)
+scale = Vector2(2.421875, 0.66406256)
+texture = ExtResource("3_friql")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 30)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_smh0m")
+debug_color = Color(0, 0.6, 0.69803923, 0)

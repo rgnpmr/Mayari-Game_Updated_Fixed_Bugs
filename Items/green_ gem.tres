@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://bsrqa76n6ix5u"]
+
+[ext_resource type="Script" uid="uid://b7m31l7q05e30" path="res://Items/scripts/item_data.gd" id="1_mndqm"]
+[ext_resource type="Script" uid="uid://hc7gwekekohq" path="res://Items/item_effects/item_effects.gd" id="1_yq8b3"]
+[ext_resource type="Texture2D" uid="uid://brwur21d0r2u6" path="res://Items/sprites/items.png" id="2_kvxp5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yq8b3"]
+atlas = ExtResource("2_kvxp5")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_mndqm")
+name = "Berde"
+description = "Berdeng Perlas"
+texture = SubResource("AtlasTexture_yq8b3")
+quest_title = "Hanap Perlas"
+quest_step_id = "Berde"
+metadata/_custom_type_script = "uid://b7m31l7q05e30"

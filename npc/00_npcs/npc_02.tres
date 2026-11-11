@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=3 format=3 uid="uid://dwpovspij70fc"]
+
+[ext_resource type="Script" uid="uid://cyhnpvoavbbwt" path="res://npc/scripts/npc_resource.gd" id="1_8uk60"]
+[ext_resource type="Texture2D" uid="uid://cvi0wtolgf2eh" path="res://npc/sprites/kanibag.png" id="2_8uk60"]
+
+[resource]
+script = ExtResource("1_8uk60")
+npc_name = "Kanibag"
+sprite = ExtResource("2_8uk60")
+metadata/_custom_type_script = "uid://cyhnpvoavbbwt"

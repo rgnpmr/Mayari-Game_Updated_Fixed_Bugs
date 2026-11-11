@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ib5npm0su3sp"
+path="res://.godot/imported/Gurang 1.ogg-b40de8621c9577901c973e67fc7b6ddb.oggvorbisstr"
+
+[deps]
+
+source_file="res://Voices/gurang_na_laki/Gurang 1.ogg"
+dest_files=["res://.godot/imported/Gurang 1.ogg-b40de8621c9577901c973e67fc7b6ddb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjc13cy4s2jjt"]
+
+[ext_resource type="Script" uid="uid://yj21c56yoevy" path="res://quests/calming_crater/crater_timer_ui.gd" id="1_p5yiy"]
+
+[node name="CraterTimerUI" type="CanvasLayer"]
+script = ExtResource("1_p5yiy")
+
+[node name="TimerLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_top = 51.0
+offset_right = 19.0
+offset_bottom = 74.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.7783351, 0.16183029, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "0:00"

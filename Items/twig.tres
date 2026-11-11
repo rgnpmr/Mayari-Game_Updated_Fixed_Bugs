@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cxujgfmtogc24"]
+
+[ext_resource type="Script" uid="uid://hc7gwekekohq" path="res://Items/item_effects/item_effects.gd" id="1_no0l6"]
+[ext_resource type="Script" uid="uid://b7m31l7q05e30" path="res://Items/scripts/item_data.gd" id="2_ekoep"]
+[ext_resource type="Texture2D" uid="uid://brwur21d0r2u6" path="res://Items/sprites/items.png" id="5_pw6gd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvr3a"]
+atlas = ExtResource("5_pw6gd")
+region = Rect2(131, 0, 28, 32)
+
+[resource]
+script = ExtResource("2_ekoep")
+name = "Sanga"
+description = "maliit na sanga."
+texture = SubResource("AtlasTexture_cvr3a")
+metadata/_custom_type_script = "uid://b7m31l7q05e30"

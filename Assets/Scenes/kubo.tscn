@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cymgwysbbfq3m"]
+
+[ext_resource type="Texture2D" uid="uid://dllxuq6jt4qh2" path="res://Assets/kubo/building_1 (10).png" id="1_777qv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx2f8"]
+size = Vector2(78, 65)
+
+[node name="house" type="Node2D"]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_777qv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-1, 8)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, 12.5)
+shape = SubResource("RectangleShape2D_xx2f8")

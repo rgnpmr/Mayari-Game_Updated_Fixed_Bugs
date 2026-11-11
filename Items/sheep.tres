@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://cv5mc2l5tc2se"]
+
+[ext_resource type="Script" uid="uid://hc7gwekekohq" path="res://Items/item_effects/item_effects.gd" id="1_anh58"]
+[ext_resource type="Script" uid="uid://b7m31l7q05e30" path="res://Items/scripts/item_data.gd" id="2_5ixd0"]
+[ext_resource type="Script" uid="uid://c8v3qyx2jynhh" path="res://animals/script/spawn_scene_effect.gd" id="2_7v5gt"]
+[ext_resource type="Texture2D" uid="uid://ddugj2qh2mn60" path="res://animals/sprites/Sheep_animation_with_shadow.png" id="4_uk0t0"]
+
+[sub_resource type="Resource" id="Resource_js3p0"]
+script = ExtResource("2_7v5gt")
+scene_path = "uid://bxcke1t2banpo"
+metadata/_custom_type_script = "uid://c8v3qyx2jynhh"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftoct"]
+atlas = ExtResource("4_uk0t0")
+region = Rect2(31, 0, 31, 30)
+
+[resource]
+script = ExtResource("2_5ixd0")
+name = "Sheep"
+texture = SubResource("AtlasTexture_ftoct")
+effects = Array[ExtResource("1_anh58")]([SubResource("Resource_js3p0")])
+metadata/_custom_type_script = "uid://b7m31l7q05e30"

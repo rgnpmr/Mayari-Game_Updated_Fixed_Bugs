@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://ffvfdvmura74"]
+
+[ext_resource type="Script" uid="uid://hc7gwekekohq" path="res://Items/item_effects/item_effects.gd" id="1_tcxeh"]
+[ext_resource type="Script" uid="uid://b7m31l7q05e30" path="res://Items/scripts/item_data.gd" id="2_4cqjp"]
+[ext_resource type="Script" uid="uid://c8v3qyx2jynhh" path="res://animals/script/spawn_scene_effect.gd" id="2_6vv1w"]
+[ext_resource type="Texture2D" uid="uid://bq0i0cgru5e8w" path="res://animals/sprites/cow.png" id="4_euumn"]
+
+[sub_resource type="Resource" id="Resource_1xcu2"]
+script = ExtResource("2_6vv1w")
+metadata/_custom_type_script = "uid://c8v3qyx2jynhh"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5c4p7"]
+atlas = ExtResource("4_euumn")
+region = Rect2(7, 35, 18, 25)
+
+[resource]
+script = ExtResource("2_4cqjp")
+name = "Cow"
+texture = SubResource("AtlasTexture_5c4p7")
+effects = Array[ExtResource("1_tcxeh")]([SubResource("Resource_1xcu2")])
+metadata/_custom_type_script = "uid://b7m31l7q05e30"

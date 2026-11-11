@@ -1,0 +1,180 @@
+[gd_scene load_steps=12 format=3 uid="uid://bjdiwbws4a2sk"]
+
+[ext_resource type="Script" uid="uid://b8204wlrodfan" path="res://quests/QuestHud/quest_view.gd" id="1_ftxcb"]
+[ext_resource type="Texture2D" uid="uid://blx2gh62x0oqk" path="res://Assets/icons/icons8-menu-50.png" id="2_u53ub"]
+[ext_resource type="FontFile" uid="uid://bqikap07b3uhj" path="res://GUI/fonts/m5x7.ttf" id="3_42mch"]
+[ext_resource type="Texture2D" uid="uid://vy6tu0t72b73" path="res://Assets/icons/icons8-pause-100 (2).png" id="3_jl51c"]
+[ext_resource type="Texture2D" uid="uid://bhg2jygd2hfup" path="res://Assets/icons/icons8-parchment-100.png" id="4_k4j8h"]
+[ext_resource type="Texture2D" uid="uid://bxrgyaae1821l" path="res://Assets/icons/icons8-gamepad-50.png" id="5_bppqe"]
+[ext_resource type="Texture2D" uid="uid://brxsnccur1f00" path="res://Assets/icons/icons8-map-50 (2).png" id="6_vco8r"]
+[ext_resource type="Texture2D" uid="uid://bckm4m51slun5" path="res://Assets/icons/icons8-rucksack-50.png" id="7_e3y5b"]
+[ext_resource type="Texture2D" uid="uid://c3hcnxdquhxgg" path="res://Assets/icons/icons8-prev-100 (2).png" id="8_u53ub"]
+[ext_resource type="Texture2D" uid="uid://cb41v0lqwyahb" path="res://Assets/icons/icons8-right-button-64 (2).png" id="10_jl51c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dne5f"]
+bg_color = Color(0.22745098, 0.22745098, 0.22352941, 0.44705883)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.38459277, 0.2435469, 0.020305375, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="QuestView" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_ftxcb")
+
+[node name="HudMenuButton" type="Button" parent="."]
+texture_filter = 1
+offset_left = 462.0
+offset_top = 8.0
+offset_right = 485.0
+offset_bottom = 31.0
+icon = ExtResource("2_u53ub")
+flat = true
+expand_icon = true
+
+[node name="IconsContainer" type="VBoxContainer" parent="."]
+offset_left = 462.0
+offset_top = 33.0
+offset_right = 492.0
+offset_bottom = 199.0
+
+[node name="PauseButton" type="Button" parent="IconsContainer"]
+process_mode = 3
+texture_filter = 1
+custom_minimum_size = Vector2(23, 23)
+layout_mode = 2
+icon = ExtResource("3_jl51c")
+flat = true
+expand_icon = true
+
+[node name="ToggleButton" type="Button" parent="IconsContainer"]
+modulate = Color(1, 1, 1, 0.9411765)
+texture_filter = 1
+custom_minimum_size = Vector2(23, 23)
+layout_mode = 2
+icon = ExtResource("4_k4j8h")
+flat = true
+expand_icon = true
+
+[node name="ControlButton" type="Button" parent="IconsContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(23, 23)
+layout_mode = 2
+icon = ExtResource("5_bppqe")
+flat = true
+expand_icon = true
+
+[node name="MiniMapButton" type="Button" parent="IconsContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(23, 23)
+layout_mode = 2
+icon = ExtResource("6_vco8r")
+flat = true
+expand_icon = true
+
+[node name="InventoryButton" type="Button" parent="IconsContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(23, 23)
+layout_mode = 2
+icon = ExtResource("7_e3y5b")
+flat = true
+expand_icon = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 1.0
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+custom_minimum_size = Vector2(140, 50)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 143.0
+offset_bottom = 108.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dne5f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+custom_minimum_size = Vector2(140, 50)
+layout_mode = 2
+
+[node name="NavRow" type="HBoxContainer" parent="Control/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="PrevButton" type="Button" parent="Control/PanelContainer/VBoxContainer/NavRow"]
+texture_filter = 1
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+icon = ExtResource("8_u53ub")
+flat = true
+expand_icon = true
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer/NavRow"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_42mch")
+theme_override_font_sizes/font_size = 14
+text = "Misyon"
+
+[node name="NextButton" type="Button" parent="Control/PanelContainer/VBoxContainer/NavRow"]
+texture_filter = 1
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+icon = ExtResource("10_jl51c")
+flat = true
+expand_icon = true
+
+[node name="TabsContainer" type="HBoxContainer" parent="Control/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Control/PanelContainer/VBoxContainer/TabsContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.67650515, 0.50793266, 0.16473977, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_42mch")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="Control/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="DescriptionLabel" type="Label" parent="Control/PanelContainer/VBoxContainer/ScrollContainer2"]
+texture_filter = 1
+custom_minimum_size = Vector2(130, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_42mch")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="StepsContainer" type="VBoxContainer" parent="Control/PanelContainer/VBoxContainer/ScrollContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(130, 30)
+layout_mode = 2
+alignment = 1

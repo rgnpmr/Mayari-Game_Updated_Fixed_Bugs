@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://ci1x5bllp60jg"]
+
+[ext_resource type="Script" uid="uid://hc7gwekekohq" path="res://Items/item_effects/item_effects.gd" id="1_m0ml4"]
+[ext_resource type="Script" uid="uid://c8v3qyx2jynhh" path="res://animals/script/spawn_scene_effect.gd" id="2_3avln"]
+[ext_resource type="Script" uid="uid://b7m31l7q05e30" path="res://Items/scripts/item_data.gd" id="2_4vuk1"]
+[ext_resource type="Texture2D" uid="uid://cj38g1evsp0uk" path="res://Items/sprites/gems.png" id="3_4vuk1"]
+
+[sub_resource type="Resource" id="Resource_c7v0r"]
+script = ExtResource("2_3avln")
+metadata/_custom_type_script = "uid://c8v3qyx2jynhh"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3avln"]
+atlas = ExtResource("3_4vuk1")
+region = Rect2(0, 0, 17, 16)
+
+[resource]
+script = ExtResource("2_4vuk1")
+name = "Asul"
+description = "Asul na Perlas"
+texture = SubResource("AtlasTexture_3avln")
+effects = Array[ExtResource("1_m0ml4")]([SubResource("Resource_c7v0r")])
+quest_title = "Hanap Perlas"
+quest_step_id = "Asul"
+metadata/_custom_type_script = "uid://b7m31l7q05e30"

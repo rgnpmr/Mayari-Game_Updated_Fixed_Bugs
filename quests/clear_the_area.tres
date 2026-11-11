@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://brpjag7uavnli"]
+
+[ext_resource type="Script" uid="uid://deq0wu2uunon1" path="res://quests/scripts/quest_reward_item.gd" id="1_sc8dc"]
+[ext_resource type="Script" uid="uid://dsh4ekdjmvfh" path="res://quests/scripts/quest_resource.gd" id="3_2blhl"]
+
+[resource]
+script = ExtResource("3_2blhl")
+title = "Linig"
+description = "Alisin ang mga sanga o kahoy na nakaharang sa dadaanan mo.
+"
+steps = Array[String](["Linig"])
+step_targets = Array[int]([10])
+metadata/_custom_type_script = "uid://dsh4ekdjmvfh"

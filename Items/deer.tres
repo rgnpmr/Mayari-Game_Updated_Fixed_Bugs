@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://bx1qnpodvk74b"]
+
+[ext_resource type="Script" uid="uid://hc7gwekekohq" path="res://Items/item_effects/item_effects.gd" id="1_pov5j"]
+[ext_resource type="Script" uid="uid://c8v3qyx2jynhh" path="res://animals/script/spawn_scene_effect.gd" id="2_1qr5o"]
+[ext_resource type="Script" uid="uid://b7m31l7q05e30" path="res://Items/scripts/item_data.gd" id="2_sv2jx"]
+[ext_resource type="Texture2D" uid="uid://0lnbdxv3w2nm" path="res://animals/sprites/Deer_Walk.png" id="4_cq51b"]
+
+[sub_resource type="Resource" id="Resource_sa4cx"]
+script = ExtResource("2_1qr5o")
+scene_path = "uid://cyeb0l3hm0m8j"
+metadata/_custom_type_script = "uid://c8v3qyx2jynhh"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y1p5"]
+atlas = ExtResource("4_cq51b")
+region = Rect2(6, 0, 23, 30)
+
+[resource]
+script = ExtResource("2_sv2jx")
+name = "deer"
+description = "wild animal"
+texture = SubResource("AtlasTexture_5y1p5")
+effects = Array[ExtResource("1_pov5j")]([SubResource("Resource_sa4cx")])
+metadata/_custom_type_script = "uid://b7m31l7q05e30"

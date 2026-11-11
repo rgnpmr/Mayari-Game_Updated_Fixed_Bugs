@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://qllguq4hhxxb"]
+
+[ext_resource type="Script" uid="uid://3iu5rqwusogv" path="res://Props/growing_plants/Plants/plant.gd" id="1_rl4ab"]
+[ext_resource type="Texture2D" uid="uid://mgok26qoy0s4" path="res://Assets/stones/Rock1_1.png" id="2_5dxls"]
+[ext_resource type="PackedScene" uid="uid://b1odd86vtn1lh" path="res://GeneralNodes/HitBox/hit_box.tscn" id="3_2ivrg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4dj8"]
+size = Vector2(32, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gm0m4"]
+size = Vector2(32, 20)
+
+[node name="stone" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_rl4ab")
+quest_title = "Clear the Area"
+quest_step_id = "stone"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_5dxls")
+
+[node name="HitBox" parent="." instance=ExtResource("3_2ivrg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_g4dj8")
+debug_color = Color(0.7019608, 0.5372549, 0, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+texture_filter = 1
+position = Vector2(1, 10)
+shape = SubResource("RectangleShape2D_gm0m4")
+debug_color = Color(0, 0.6, 0.69803923, 0)

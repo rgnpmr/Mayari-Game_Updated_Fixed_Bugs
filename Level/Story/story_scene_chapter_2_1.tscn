@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv7t42s8ykdxy"]
+
+[ext_resource type="Script" uid="uid://xn5hkgctoxjn" path="res://Level/Story/story_scene.gd" id="1_sdman"]
+[ext_resource type="Script" uid="uid://ueesf2ffbpr8" path="res://Interactables/dialogue/scripts/dialogue_text.gd" id="2_ogtsu"]
+[ext_resource type="AudioStream" uid="uid://c0bcrkwcxjo8o" path="res://Voices/Narrator/Chapter2_1/1.ogg" id="3_l0dx4"]
+[ext_resource type="FontFile" uid="uid://bqikap07b3uhj" path="res://GUI/fonts/m5x7.ttf" id="3_ogtsu"]
+[ext_resource type="AudioStream" uid="uid://c1141bgrjbp3x" path="res://GUI/dialogue_system/audio/voice_blip.wav" id="4_uvrgx"]
+[ext_resource type="Script" uid="uid://bdjtws72a5xmt" path="res://Level/Ending/styled_button.gd" id="6_uvrgx"]
+
+[node name="StorySceneChapter2_1" type="Node2D"]
+script = ExtResource("1_sdman")
+music_duck_db = -18.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 55
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14117648, 0.14117648, 0.14117648, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Content" type="RichTextLabel" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.16
+anchor_top = 0.44333333
+anchor_right = 0.786
+anchor_bottom = 0.44333333
+offset_left = 20.0
+offset_top = -51.0
+offset_right = -20.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StoryLines" type="Node" parent="CanvasLayer"]
+
+[node name="DialogueText" type="Node" parent="CanvasLayer/StoryLines"]
+script = ExtResource("2_ogtsu")
+text = "Agama discovers that Kasili’s reckless movement caused the mountain to release water and make the ground shake.  The village and forests are still in danger, and Agama must go to the crater to stop the disaster."
+voice = ExtResource("3_l0dx4")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText2" type="Node" parent="CanvasLayer/StoryLines"]
+script = ExtResource("2_ogtsu")
+text = "
+
+END OF CHAPTER 2"
+voice = ExtResource("4_uvrgx")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText3" type="Node" parent="CanvasLayer/StoryLines"]
+script = ExtResource("2_ogtsu")
+text = "
+
+START OF CHAPTER 3"
+voice = ExtResource("4_uvrgx")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = 78.0
+offset_right = 33.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ogtsu")
+text = "Pindutin ang \"space\" o i-tap ang screen para magpatuloy"
+
+[node name="SkipButton" type="Button" parent="CanvasLayer"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 22)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_top = 6.0
+offset_right = -5.0
+offset_bottom = 28.0
+grow_horizontal = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_ogtsu")
+text = "Laktawan"
+script = ExtResource("6_uvrgx")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

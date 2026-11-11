@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqihu8rtii4us"]
+
+[ext_resource type="Texture2D" uid="uid://ce03r01d011fx" path="res://Assets/Bushes/Bush1_3.png" id="1_cbm77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7sa7"]
+size = Vector2(28, 12)
+
+[node name="tree" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_cbm77")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_l7sa7")
+debug_color = Color(0, 0.6, 0.69803923, 0)

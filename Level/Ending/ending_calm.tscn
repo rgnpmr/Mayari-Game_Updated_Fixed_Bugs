@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0bhnr0fkvbap"]
+
+[ext_resource type="PackedScene" uid="uid://bcdoarcpfevod" path="res://Level/Ending/Ending_Background/village_calm.tscn" id="1_0dyhl"]
+[ext_resource type="Script" uid="uid://ck63k5jdwjhvs" path="res://Level/Ending/ending_menu_button.gd" id="2_0dyhl"]
+
+[sub_resource type="Gradient" id="Gradient_ns6ro"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_86wwe"]
+gradient = SubResource("Gradient_ns6ro")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="EndingCalm" type="Node2D"]
+
+[node name="village" parent="." instance=ExtResource("1_0dyhl")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21568628, 0.21176471, 0.21176471, 0.3137255)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/ColorRect"]
+modulate = Color(0, 0, 0, 0.4627451)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_86wwe")
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 0.5233333
+anchor_right = 0.504
+anchor_bottom = 0.5233333
+offset_left = -82.0
+offset_top = -77.0
+offset_right = 83.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.16600236, 0.32349485, 0.19688322, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "THE END!"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SubtitleLabel" type="Label" parent="CanvasLayer/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.409
+anchor_top = 0.49166667
+anchor_right = 0.595
+anchor_bottom = 0.59833336
+offset_left = -100.5
+offset_top = -6.5
+offset_right = 100.5
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "The vow was made. 
+Agama and Kasili now guard the mountain together, 
+and the village sleeps in peace."
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = 90.0
+offset_right = 7.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu"
+script = ExtResource("2_0dyhl")
+main_menu_scene = "uid://81ua0bcyvdsl"

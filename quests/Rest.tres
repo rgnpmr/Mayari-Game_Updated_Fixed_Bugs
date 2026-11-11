@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://qqn0m7p4jnhf"]
+
+[ext_resource type="Script" uid="uid://deq0wu2uunon1" path="res://quests/scripts/quest_reward_item.gd" id="1_rsxoq"]
+[ext_resource type="Script" uid="uid://dsh4ekdjmvfh" path="res://quests/scripts/quest_resource.gd" id="2_yrvu1"]
+
+[resource]
+script = ExtResource("2_yrvu1")
+title = "Pahingalo"
+description = "Mag pahinga sa Kubo."
+metadata/_custom_type_script = "uid://dsh4ekdjmvfh"

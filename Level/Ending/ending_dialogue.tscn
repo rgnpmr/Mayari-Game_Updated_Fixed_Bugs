@@ -1,0 +1,169 @@
+[gd_scene load_steps=21 format=3 uid="uid://b41vpmv6bcv4j"]
+
+[ext_resource type="Script" uid="uid://cmuh6lrmhbfs1" path="res://Level/Ending/ending_dialogue.gd" id="1_5bwei"]
+[ext_resource type="Texture2D" uid="uid://kn10obmiqhgu" path="res://Images/crater_raining.png" id="2_7kjic"]
+[ext_resource type="PackedScene" uid="uid://cj7k8ss2k043u" path="res://Level/Ending/FightScene/fight_scene.tscn" id="2_wviln"]
+[ext_resource type="PackedScene" uid="uid://ba2eu4ydpn7xf" path="res://Level/Ending/FightScene/talk_scene.tscn" id="3_055u5"]
+[ext_resource type="FontFile" uid="uid://bqikap07b3uhj" path="res://GUI/fonts/m5x7.ttf" id="3_w2tf4"]
+[ext_resource type="FontFile" uid="uid://2bs28v2ieaak" path="res://GUI/fonts/Abaddon Bold.ttf" id="4_c3d0h"]
+[ext_resource type="Script" uid="uid://ueesf2ffbpr8" path="res://Interactables/dialogue/scripts/dialogue_text.gd" id="5_c3d0h"]
+[ext_resource type="PackedScene" uid="uid://ec7l42xsg6f2" path="res://Level/Chapters/ending_dialogue_background.tscn" id="5_m0pk3"]
+[ext_resource type="Script" uid="uid://c5waqt65pooy2" path="res://Interactables/dialogue/scripts/dialogue_choice.gd" id="7_lchgn"]
+[ext_resource type="Script" uid="uid://c0hgf6k6rfle4" path="res://Interactables/dialogue/scripts/dialogue_branch.gd" id="8_ehwkh"]
+[ext_resource type="AudioStream" uid="uid://yqgy1vuo76tg" path="res://Voices/Narrator/ending_fight/1.ogg" id="9_qv3t7"]
+[ext_resource type="AudioStream" uid="uid://chmkrjr2nnvfi" path="res://Voices/Narrator/ending_fight/2.ogg" id="10_6axih"]
+[ext_resource type="AudioStream" uid="uid://pvghv0bejq7p" path="res://Voices/Narrator/ending_fight/3.ogg" id="11_ejlhn"]
+[ext_resource type="PackedScene" uid="uid://c1t35s5tk6bjf" path="res://Level/Ending/FightScene/glowing_gem.tscn" id="14_dknr6"]
+[ext_resource type="Texture2D" uid="uid://bcyvg7mjvk3hm" path="res://Level/Ending/FightScene/pula_gem.tres" id="15_3d6oa"]
+[ext_resource type="Texture2D" uid="uid://8f8rlfc0ntwi" path="res://Level/Ending/FightScene/asul_gem.tres" id="16_gg7cn"]
+[ext_resource type="Texture2D" uid="uid://dc0jyu0sx1om3" path="res://Level/Ending/FightScene/berde_gem.tres" id="17_qsa0l"]
+
+[sub_resource type="Gradient" id="Gradient_ns6ro"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5bwei"]
+gradient = SubResource("Gradient_ns6ro")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dknr6"]
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.6666667)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Ending_Dialogue" type="CanvasLayer"]
+layer = 4
+script = ExtResource("1_5bwei")
+fight_scene = ExtResource("2_wviln")
+talk_scene = ExtResource("3_055u5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7kjic")
+expand_mode = 2
+
+[node name="ending_dialogue_background" parent="." instance=ExtResource("5_m0pk3")]
+position = Vector2(107, 95)
+scale = Vector2(0.61, 0.61)
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.4627451)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -301.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_5bwei")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = 30.0
+offset_right = 175.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_dknr6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_w2tf4")
+theme_override_fonts/bold_font = ExtResource("4_c3d0h")
+bbcode_enabled = true
+text = "
+"
+scroll_active = false
+autowrap_mode = 2
+horizontal_alignment = 1
+
+[node name="StoryLines" type="Node" parent="."]
+
+[node name="DialogueText" type="Node" parent="StoryLines"]
+script = ExtResource("5_c3d0h")
+text = "At the crater’s edge, Agama confronts Kasili. The mountain roars, water surging."
+voice = ExtResource("9_qv3t7")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText2" type="Node" parent="StoryLines"]
+script = ExtResource("5_c3d0h")
+text = "Kasili coils defiantly, 
+insisting it only wished to play. "
+voice = ExtResource("10_6axih")
+show_gems = true
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="DialogueText3" type="Node" parent="StoryLines"]
+script = ExtResource("5_c3d0h")
+text = "The air trembles as Agama channels the gemstones’ energy to calm the crater."
+voice = ExtResource("11_ejlhn")
+metadata/_custom_type_script = "uid://ueesf2ffbpr8"
+
+[node name="FightorTalkChoice" type="Node" parent="StoryLines"]
+script = ExtResource("7_lchgn")
+metadata/_custom_type_script = "uid://c5waqt65pooy2"
+
+[node name="FightBranch" type="Node" parent="StoryLines/FightorTalkChoice"]
+script = ExtResource("8_ehwkh")
+text = "Fight"
+triggers_evacuation = true
+launches_fight_scene = true
+metadata/_custom_type_script = "uid://c0hgf6k6rfle4"
+
+[node name="TalkBranch" type="Node" parent="StoryLines/FightorTalkChoice"]
+script = ExtResource("8_ehwkh")
+text = "Talk"
+launches_talk_scene = true
+metadata/_custom_type_script = "uid://c0hgf6k6rfle4"
+
+[node name="NextButton" type="Label" parent="."]
+texture_filter = 1
+offset_left = 146.0
+offset_top = 245.0
+offset_right = 372.0
+offset_bottom = 268.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_w2tf4")
+theme_override_font_sizes/font_size = 13
+text = "press \"space\" to continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="GlowingGem" parent="." instance=ExtResource("14_dknr6")]
+position = Vector2(170, 80)
+scale = Vector2(1.5, 1.5)
+gem_texture = ExtResource("15_3d6oa")
+
+[node name="GlowingGem2" parent="." instance=ExtResource("14_dknr6")]
+position = Vector2(250, 60)
+scale = Vector2(1.5, 1.5)
+gem_texture = ExtResource("16_gg7cn")
+glow_color = Color(0.22745098, 0.54901963, 1, 1)
+
+[node name="GlowingGem3" parent="." instance=ExtResource("14_dknr6")]
+position = Vector2(330, 80)
+scale = Vector2(1.5, 1.5)
+gem_texture = ExtResource("17_qsa0l")
+glow_color = Color(0.1882353, 1, 0.3764706, 1)

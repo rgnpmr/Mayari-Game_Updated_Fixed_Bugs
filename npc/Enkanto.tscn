@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://48u5eufc7vj8"]
+
+[ext_resource type="Script" uid="uid://duk3icji1mpjw" path="res://npc/scripts/enkanto.gd" id="1_wsgbc"]
+[ext_resource type="Texture2D" uid="uid://cjrhjnq2wly6g" path="res://npc/sprites/Engkanto idle.png" id="1_xv1rs"]
+[ext_resource type="Texture2D" uid="uid://c8kofu2elswbo" path="res://player/Sprites/Shadow.png" id="3_us673"]
+
+[sub_resource type="Animation" id="Animation_o6cys"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_3i1kj"]
+resource_name = "idle_down"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 12, 23]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wuxkc"]
+_data = {
+&"RESET": SubResource("Animation_o6cys"),
+&"idle_down": SubResource("Animation_3i1kj")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wsgbc"]
+radius = 5.9997883
+height = 13.999507
+
+[node name="Enkanto" type="CharacterBody2D"]
+script = ExtResource("1_wsgbc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wuxkc")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -16)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_xv1rs")
+hframes = 5
+vframes = 5
+frame = 1
+
+[node name="shadow" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0.17154133, 0.17154133, 0.17154133, 0.8509804)
+texture_filter = 1
+position = Vector2(6.6666665, 86.666664)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_us673")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -0.99999976)
+rotation = -1.5624006
+shape = SubResource("CapsuleShape2D_wsgbc")
